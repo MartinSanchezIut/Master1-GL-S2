@@ -1,0 +1,9 @@
+[
+    {"nom":"Crepes", "ingredients": [["farine", 1] ], "modeCuisson":"poele", "nombrePersonnes":3, "autheur":"pseudo"},
+    {"nom":"Pancakes", "ingredients": [], "modeCuisson":"poele", "nombrePersonnes":3, "autheur":"pseudo"},
+    {"nom":"Brioche", "ingredients": [], "modeCuisson":"four", "nombrePersonnes":3, "autheur":"pseudo"},
+    {"nom":"Sables", "ingredients": [], "modeCuisson":"four", "nombrePersonnes":3, "autheur":"pseudo"},
+    {"nom":"Soupe", "ingredients": [], "modeCuisson":"casserole", "nombrePersonnes":3, "autheur":"pseudo"},
+    {"nom":"RizDinde", "ingredients": [], "modeCuisson":"poele", "nombrePersonnes":3, "autheur":"pseudo"},
+    {"nom":"Omelette", "ingredients": [], "modeCuisson":"poele", "nombrePersonnes":3, "autheur":"pseudo"}
+    ]
