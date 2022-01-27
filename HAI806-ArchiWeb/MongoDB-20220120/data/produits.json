@@ -1,7 +1,20 @@
 [
-    {"nom":"Caféine", "type":"anti-fatigue", "prix":15, "marque":"marque1"},
-    {"nom":"Curcumine", "type":"anti-oxydant", "prix":30, "marque":"marque1"},
-    {"nom":"Quercétine", "type":"anti-oxydant", "prix":50, "marque":"marque2"},
-    {"nom":"Resvératrol", "type":"anti-oxydant", "prix":45, "marque":"marque2"},
-    {"nom":"Rhodiola rosea", "type":"anti-fatigue", "prix":25, "marque":"marque2"}
+    {"nom":"tomates", "prix":"1.2", "unite":"piece"},
+    {"nom":"fromage rapé", "prix":"0.08",  "unite":"gramme"},
+    {"nom":"pâte", "prix":"0.1",  "unite":"gramme"},
+    {"nom":"viande hachée", "prix":"0.3",  "unite":"gramme"},
+    {"nom":"oeufs", "prix":"0.25",  "unite":"piece"},
+    {"nom":"lait", "prix":"0.6",  "unite":"litre"},
+    {"nom":"farine", "prix":"1",  "unite":"kilo"},
+    {"nom":"sucre vanillé", "prix":"0.3",  "unite":"gramme"},
+    {"nom":"fleur d'oranger", "prix":"5",  "unite":"litre"},
+    {"nom":"aubergine", "prix":"2",  "unite":"piece"},
+    {"nom":"courgettes", "prix":"1.1",  "unite":"piece"},
+    {"nom":"lardons", "prix":"0.1",  "unite":"gramme"},
+    {"nom":"poivrons", "prix":"1.2",  "unite":"piece"},
+    {"nom":"riz", "prix":"1.6",  "unite":"kilo"},
+    {"nom":"saumon", "prix":"0.15",  "unite":"gramme"},
+    {"nom":"concombre", "prix":"1.2",  "unite":"piece"},
+    {"nom":"avocat", "prix":"0.9",  "unite":"piece"},
+    {"nom":"chocolat noir", "prix":"0.35",  "unite":"gramme"}
 ]
