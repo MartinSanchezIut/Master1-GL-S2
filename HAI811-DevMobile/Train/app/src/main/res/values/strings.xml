@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Trains</string>
+    <string name="dep">Départ</string>
+    <string name="arr">Arrivée</string>
+</resources>
