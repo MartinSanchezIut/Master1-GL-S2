@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TP1</string>
+    <string name="nom">Name</string>
+    <string name="prenom">Surname</string>
+    <string name="age">Age</string>
+    <string name="domaine">Domain</string>
+    <string name="num">Number</string>
+    <string name="valider">Validate</string>
+    <string name="alertDialog">Are those informations true ?</string>
+    <string name="oui">Yes</string>
+    <string name="non">No</string>
+</resources>
