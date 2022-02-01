@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TP1</string>
+    <string name="app_name">TP1Martin</string>
     <string name="nom">Nom</string>
     <string name="prenom">Prenom</string>
     <string name="age">Age</string>
@@ -9,4 +9,6 @@
     <string name="alertDialog">Vous validez ces informations ?</string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
+    <string name="retour">Retour</string>
+    <string name="call">Appeler</string>
 </resources>

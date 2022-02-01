@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,27 +30,33 @@ public class MainActivity extends AppCompatActivity {
         */
 
         // Ex2 :
+        /*
         setContentView(R.layout.form);
         nom = (EditText) this.findViewById(R.id.Nom);
         prenom = (EditText) this.findViewById(R.id.Prenom);
         age = (EditText) this.findViewById(R.id.Age);
         numero = (EditText) this.findViewById(R.id.numero);
         domaine = (EditText) this.findViewById(R.id.Domaine);
-
+        */
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        EditText prenom = new EditText(this);
+        prenom = new EditText(this);
         prenom.setHint(getString(R.string.prenom));
-        EditText nom = new EditText(this);
+        nom = new EditText(this);
         nom.setHint(getString(R.string.nom));
-        EditText age = new EditText(this);
+        age = new EditText(this);
         age.setHint(getString(R.string.age));
-        EditText numero = new EditText(this);
+        numero = new EditText(this);
         numero.setHint(getString(R.string.num));
-        EditText domaine = new EditText(this);
+        domaine = new EditText(this);
         domaine.setHint(getString(R.string.domaine));
+
+        // TESTS
+        prenom.setText("Piere"); nom.setText("Paul");age.setText("95");numero.setText("0123456789");domaine.setText("Petanque");
+
+
         Button bouton = new Button(this);
         bouton.setText(getString(R.string.valider));
         bouton.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +87,17 @@ public class MainActivity extends AppCompatActivity {
                         getString(R.string.age) + " :" + age.getText().toString() + "\n"+
                         getString(R.string.num) + " :" + numero.getText().toString()+"\n"+
                         getString(R.string.domaine) + " :" + domaine.getText().toString(), Toast.LENGTH_LONG).show();
+
+
+                Intent intent = new Intent(MainActivity.this , ContactSheetActivity.class);
+                intent.putExtra("prenom", prenom.getText().toString()) ;
+                intent.putExtra("nom", nom.getText().toString()) ;
+                intent.putExtra("age", age.getText().toString()) ;
+                intent.putExtra("domaine", domaine.getText().toString()) ;
+                intent.putExtra("num", numero.getText().toString()) ;
+
+                MainActivity.this.startActivity(intent);
+
             }
         });
         b.setNegativeButton(getString(R.string.non), new DialogInterface.OnClickListener() {

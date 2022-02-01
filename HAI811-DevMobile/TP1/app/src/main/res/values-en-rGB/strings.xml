@@ -10,4 +10,6 @@
     <string name="alertDialog">Are those informations true ?</string>
     <string name="oui">Yes</string>
     <string name="non">No</string>
+    <string name="retour">Return</string>
+    <string name="call">Call</string>
 </resources>
