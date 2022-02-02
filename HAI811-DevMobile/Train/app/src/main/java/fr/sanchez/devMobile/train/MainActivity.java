@@ -65,4 +65,7 @@ public class MainActivity extends AppCompatActivity {
         text.setText(texte);
         linear.addView(text);
     }
+    public void clearScrollList() {
+        linear.removeAllViews();
+    }
 }
