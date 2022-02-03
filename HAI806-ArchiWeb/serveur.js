@@ -89,45 +89,6 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
             }
         });
 
-    /* Liste des nom:prix:unité de produits */
-    /* CA SERT A RIEN C'EST JUSTE POUR TESTER */ 
-    app.get("/listeProduits", (req,res) => {
-        console.log("/listeProduits");
-	categories = [];
-        try {
-            db.collection("produits").find().toArray((err, documents) => {
-                for (let doc of documents) {
-                            if (!categories.includes(doc.nom) && !categories.includes(doc.prix)) {
-                                
-                                categories.push([doc.nom, doc.prix +  "€ /" + doc.unite]); 
-                            }
-                }
-		console.log("   Renvoi de"+JSON.stringify(categories));
-                res.end(JSON.stringify(categories));
-            });
-        } catch(e) {
-            console.log("Erreur sur /vategories : " + e);
-            res.end(JSON.stringify([]));
-        }
-    });
-
-    /* Liste des catégories de produits */
-    app.get("/categories", (req,res) => {
-        console.log("/categories");
-	categories = [];
-        try {
-            db.collection("produits").find().toArray((err, documents) => {
-		for (let doc of documents) {
-                    if (!categories.includes(doc.type)) categories.push(doc.type); 
-		}
-		console.log("Renvoi de"+JSON.stringify(categories));
-                res.end(JSON.stringify(categories));
-            });
-        } catch(e) {
-            console.log("Erreur sur /vategories : " + e);
-            res.end(JSON.stringify([]));
-        }
-    });
 
 
 
