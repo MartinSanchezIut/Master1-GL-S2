@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -26,11 +29,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         dep = (EditText) findViewById(R.id.depart);
         arr = (EditText) findViewById(R.id.arrive);
         scroll = (ScrollView) findViewById(R.id.scroll);
         linear = (LinearLayout) findViewById(R.id.linear);
+
+        ArrayList<Train> listeTrains = Train.makeTrainList(100) ;
+        addToScrollList("Liste des trains par defaut");
+        for (Train t: listeTrains) {
+            addToScrollList(t.toString());
+        }
+
 
         dep.addTextChangedListener(new TextWatcher() {
             @Override
@@ -41,10 +50,32 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                addToScrollList("Chercher trains");
+                clearScrollList();
+
+                if (dep.getText().length() == 0) {
+                    addToScrollList("Liste des trains par defaut");
+                    for (Train t: listeTrains) {
+                        addToScrollList(t.toString());
+                    }
+                }else {
+                    for (Train t: listeTrains) {
+                        if (dep.getText().length() > 0 &&
+                                (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase()))) {
+
+                            if (arr.getText().length() > 0) {
+                                if (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase())){
+                                    addToScrollList(t.toString());
+                                }
+                            }else {
+                                addToScrollList(t.toString());
+                            }
+                        }
+                    }
+                }
 
             }
         });
+
         arr.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -54,7 +85,28 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                addToScrollList("Chercher trains");
+                clearScrollList();
+
+                if (arr.getText().length() == 0) {
+                    addToScrollList("Liste des trains par defaut");
+                    for (Train t: listeTrains) {
+                        addToScrollList(t.toString());
+                    }
+                }else {
+                    for (Train t: listeTrains) {
+                        if (arr.getText().length() > 0 &&
+                                (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase()))) {
+
+                            if (dep.getText().length() > 0) {
+                                if (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase())) {
+                                    addToScrollList(t.toString());
+                                }
+                            }else {
+                                addToScrollList(t.toString());
+                            }
+                        }
+                    }
+                }
 
             }
         });
