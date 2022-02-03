@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
+var logoTrigger = document.getElementById("logoTrigger");
+console.log(logoTrigger);
+logoTrigger.addEventListener('click', function(){ alert('blah');}, false);
