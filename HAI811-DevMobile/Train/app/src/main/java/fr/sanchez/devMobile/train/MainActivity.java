@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         scroll = (ScrollView) findViewById(R.id.scroll);
         linear = (LinearLayout) findViewById(R.id.linear);
 
-        ArrayList<Train> listeTrains = Train.makeTrainList(100) ;
-        addToScrollList("Liste des trains par defaut");
+        ArrayList<Train> listeTrains = Train.makeTrainList(50) ;
+        addToScrollList("Liste des trains par defaut" + "(" + listeTrains.size() + ")");
         for (Train t: listeTrains) {
             addToScrollList(t.toString());
         }
@@ -52,27 +52,35 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 clearScrollList();
 
-                if (dep.getText().length() == 0) {
-                    addToScrollList("Liste des trains par defaut");
+                if (arr.getText().length() == 0 && dep.getText().length() == 0) {
+                    addToScrollList("Liste des trains par defaut" + "(" + listeTrains.size() + ")");
                     for (Train t: listeTrains) {
                         addToScrollList(t.toString());
                     }
+                }else if  (arr.getText().length() > 0 && dep.getText().length() > 0) {
+                    for (Train t : listeTrains) {
+                        if (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase())) {
+                            if (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase())) {
+                                addToScrollList(t.toString());
+                            }
+                        }
+                    }
                 }else {
-                    for (Train t: listeTrains) {
-                        if (dep.getText().length() > 0 &&
-                                (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase()))) {
-
-                            if (arr.getText().length() > 0) {
-                                if (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase())){
-                                    addToScrollList(t.toString());
-                                }
-                            }else {
+                    if(arr.getText().length() > 0) {
+                        for(Train t : listeTrains) {
+                            if (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase())) {
+                                addToScrollList(t.toString());
+                            }
+                        }
+                    }
+                    if(dep.getText().length() > 0) {
+                        for(Train t : listeTrains) {
+                            if (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase())) {
                                 addToScrollList(t.toString());
                             }
                         }
                     }
                 }
-
             }
         });
 
@@ -87,27 +95,35 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 clearScrollList();
 
-                if (arr.getText().length() == 0) {
-                    addToScrollList("Liste des trains par defaut");
+                if (arr.getText().length() == 0 && dep.getText().length() == 0) {
+                    addToScrollList("Liste des trains par defaut (" + listeTrains.size() + ")" );
                     for (Train t: listeTrains) {
                         addToScrollList(t.toString());
                     }
+                }else if  (arr.getText().length() > 0 && dep.getText().length() > 0) {
+                    for (Train t : listeTrains) {
+                        if (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase())) {
+                            if (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase())) {
+                                addToScrollList(t.toString());
+                            }
+                        }
+                    }
                 }else {
-                    for (Train t: listeTrains) {
-                        if (arr.getText().length() > 0 &&
-                                (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase()))) {
-
-                            if (dep.getText().length() > 0) {
-                                if (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase())) {
-                                    addToScrollList(t.toString());
-                                }
-                            }else {
+                    if(arr.getText().length() > 0) {
+                        for(Train t : listeTrains) {
+                            if (t.getArr().toUpperCase().contains(arr.getText().toString().toUpperCase())) {
+                                addToScrollList(t.toString());
+                            }
+                        }
+                    }
+                    if(dep.getText().length() > 0) {
+                        for(Train t : listeTrains) {
+                            if (t.getDep().toUpperCase().contains(dep.getText().toString().toUpperCase())) {
                                 addToScrollList(t.toString());
                             }
                         }
                     }
                 }
-
             }
         });
     }
