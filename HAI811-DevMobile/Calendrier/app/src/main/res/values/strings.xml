@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Calendrier</string>
+    <string name="but">Ajouter</string>
+    <string name="textEvmt">Nom de l\'évenement</string>
+    <string name="evnt">Evenements</string>
+    <string name="cal">Calendrier</string>
+    <string name="taskadded">Tache ajoutée</string>
+    <string name="msg">Liste des évenements</string>
 </resources>
