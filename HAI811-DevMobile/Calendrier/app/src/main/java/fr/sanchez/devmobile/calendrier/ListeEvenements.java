@@ -22,9 +22,14 @@ public class ListeEvenements extends AppCompatActivity {
         linear = (LinearLayout) findViewById(R.id.listLayout) ;
         vueCal = (Button) findViewById(R.id.vueCal) ;
 
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
 
-        //clearScrollList();
-        addToScrollList("Ceci est un test");
+        clearScrollList();
+        addToScrollList("Nombre d'évenements : " + extras.getInt("CountEvents"));
+        for (int i = 0; i < extras.getInt("CountEvents"); i++) {
+            addToScrollList(extras.getString(i+""));
+        }
 
 
 

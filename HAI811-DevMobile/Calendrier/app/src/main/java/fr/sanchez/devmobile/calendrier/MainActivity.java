@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button ajouter, vueEvent;
 
     ArrayList<Evenement> listeEvenements;
+    String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
         ajouter = (Button) findViewById(R.id.button) ;
         vueEvent = (Button) findViewById(R.id.VueEvnt) ;
 
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        date = sdf.format(new Date(cal.getDate()));
+
+        for(int i = 0; i<10; i++) {
+            listeEvenements.add(new Evenement(date, "Test généré en dur !"));
+        }
+
         vueEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,13 +53,21 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(intent);
             }
         });
+        cal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                String  curDate = String.valueOf(dayOfMonth);
+                String  Year = String.valueOf(year);
+                String  Month = String.valueOf(month+1);
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                MainActivity.this.date = curDate + "/" + Month + "/" + Year;
+            }
+        });
         ajouter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (evnt.getText().length() > 0) {
-                    String date = sdf.format(new Date(cal.getDate()));
                     Toast.makeText(MainActivity.this, getString(R.string.taskadded) + "\n" +
                              evnt.getText() + "\n" + date , Toast.LENGTH_LONG).show();
 
