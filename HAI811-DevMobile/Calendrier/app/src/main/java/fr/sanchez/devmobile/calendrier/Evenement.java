@@ -25,4 +25,10 @@ public class Evenement {
     public String toString() {
         return date + " : " + titre;
     }
+
+    public static Evenement stringToEvenement(String str) {
+        String[] split = str.split(" : ") ;
+
+        return new Evenement(split[0], split[1]) ;
+    }
 }

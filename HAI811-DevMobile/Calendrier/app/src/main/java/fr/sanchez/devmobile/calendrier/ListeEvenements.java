@@ -9,10 +9,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ListeEvenements extends AppCompatActivity {
 
     Button vueCal;
     LinearLayout linear;
+
+    ArrayList<Evenement> listeEvenements;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,7 @@ public class ListeEvenements extends AppCompatActivity {
 
         linear = (LinearLayout) findViewById(R.id.listLayout) ;
         vueCal = (Button) findViewById(R.id.vueCal) ;
+        listeEvenements = new ArrayList<>();
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -29,6 +35,7 @@ public class ListeEvenements extends AppCompatActivity {
         addToScrollList("Nombre d'évenements : " + extras.getInt("CountEvents"));
         for (int i = 0; i < extras.getInt("CountEvents"); i++) {
             addToScrollList(extras.getString(i+""));
+            listeEvenements.add(Evenement.stringToEvenement(extras.getString(i+""))) ;
         }
 
 
@@ -37,6 +44,12 @@ public class ListeEvenements extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ListeEvenements.this , MainActivity.class);
+
+                intent.putExtra("CountEvents", listeEvenements.size()) ;
+                for (int i = 0; i< listeEvenements.size(); i++) {
+                    intent.putExtra(i+"", listeEvenements.get(i).toString()) ;
+                }
+
                 ListeEvenements.this.startActivity(intent);
             }
         });

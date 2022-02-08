@@ -38,8 +38,16 @@ public class MainActivity extends AppCompatActivity {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         date = sdf.format(new Date(cal.getDate()));
 
-        for(int i = 0; i<10; i++) {
-            listeEvenements.add(new Evenement(date, "Test généré en dur !"));
+        Intent inte = getIntent();
+        Bundle extras = inte.getExtras();
+        if (extras != null) {
+            for (int i = 0; i < extras.getInt("CountEvents"); i++) {
+                listeEvenements.add(Evenement.stringToEvenement(extras.getString(i+""))) ;
+            }
+        }else {
+            for(int i = 0; i<10; i++) {
+                listeEvenements.add(new Evenement(date, "Test généré en dur !"));
+            }
         }
 
         vueEvent.setOnClickListener(new View.OnClickListener() {
