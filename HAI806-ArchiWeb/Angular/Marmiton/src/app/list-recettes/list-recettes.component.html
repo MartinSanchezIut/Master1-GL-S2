@@ -1,0 +1,27 @@
+
+<div class="container"> 
+    <div class="container"> 
+
+        <h3 class="center">Liste des recettes</h3>
+
+
+        <div class="row" *ngFor="let x of recettes">
+            <div class="card blue lighten-1">
+                <div class="card-content blue white-text">
+                <span class="card-title">Nom de la recette : {{x.name}} </span>
+
+                <ul>
+                    <li *ngFor="let i of x.ingredients"><p> {{i}} </p>   </li>
+                </ul>
+                
+                </div>
+                <div class="card-action">
+                <a href="#" class="white-text">Plus de détail</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+ 

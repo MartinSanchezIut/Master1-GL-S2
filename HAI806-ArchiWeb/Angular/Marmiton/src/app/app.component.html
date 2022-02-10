@@ -1,17 +1,16 @@
-<script src="../assets/JS/script.js"></script>
-
-
 <!-- Navbar pour autres ecrans -->
 <nav class="hide-on-large-only">
   <div class="nav-wrapper blue lighten-1">
-    <a id="logoTrigger" href="" class="brand-logo center"> {{ title }} </a>
+    <a id="logoTrigger" class="brand-logo center unclickableLink" (click)="showHideMenu()">
+      <i class="material-icons tiny">toc</i>  {{ title }} </a>
   </div>
 </nav>
-<nav class="hide-on-large-only " > <!-- hide -->
+<nav id="hideAbleMenu" class="hide-on-large-only hide" > <!-- hide -->
   <div class="nav-wrapper blue lighten-1">
     <ul class="center container">
-      <li class="active"><a href="#">Recettes</a></li>
-      <li><a href="#">Ingrédients</a></li>
+      <li class="blue"><a href="#">Recettes</a></li>
+      <li class="blue"><a href="#">Ingrédients</a></li>
+      <li class="blue"><a href="#">Connexion</a></li>
     </ul>
   </div>
 </nav>
@@ -20,14 +19,17 @@
   <!-- Navbar pour grand écran -->
 <nav class="hide-on-med-and-down container">
   <div class="nav-wrapper blue lighten-1">
-    <a href="/" class="brand-logo left" style="padding-left: 75px;"> {{ title }} </a>
+    <a class="brand-logo left unclickableLink" style="padding-left: 75px;"> {{ title }} </a>
     <ul class="right">
-      <li class="active"><a href="#">Recettes</a></li>
-      <li><a href="#">Ingrédients</a></li>
+      <li class="blue"><a href="#">Recettes</a></li>
+      <li class="blue"><a href="#">Ingrédients</a></li>
+      <li class="blue"><a href="#">Connexion</a></li>
     </ul>
   </div>
 </nav>
+<br>
 
 
+<app-list-recettes></app-list-recettes>
 
 <router-outlet></router-outlet>
