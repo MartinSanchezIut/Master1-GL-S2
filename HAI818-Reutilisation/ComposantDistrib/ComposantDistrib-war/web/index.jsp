@@ -19,6 +19,7 @@
             String s = request.getParameter("operation");
             if ("incr".equals(s)) counter.incr();
             else if ("decr".equals(s)) counter.decr();
+            else if ("raz".equals(s)) counter.raz();
         %>
         
         <h1>Valeur du compteur :
