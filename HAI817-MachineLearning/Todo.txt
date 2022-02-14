@@ -1,0 +1,57 @@
+Première classification
+Classification données textuelles
+Ingenieurie des données
+
+
+Colab: (Google)
+	-> Compte google
+	-> Copie d'un notebook
+
+include
+
+df = read_csv("file", ...)
+	-> Data frame 
+
+X = df[:, 0, 4]
+Y = df[:, 4]
+
+Tester quelques classifieurs:
+	SVC, NB, Ramdom Forest, Linear .., Decision tree
+
+x_train, y_train; x_test; y_test; = train_test.split(x , y ...) 
+
+
+Evaluation des résultats:
+	matrice de confusion
+	accuracy
+	recall
+	presition
+	f mesure
+	A U C
+
+Sur les differents classifieurs: conserver un sous ensemble
+	Naive boyes
+	SVC
+	Random forest
+	(...)
+
+
+"Blinder mes choix":
+	cross validation
+
+
+Tester les hypotèses et les classifieurs
+
+boucle par hypothèse 
+	pour hyp: 
+	random forest -> faire varier les hyperparametres
+	svm -> ...
+
+
+
+faire un modèle de prédiction:
+	pipeline
+	pipe.fit(x y)
+
+	sauvegarder
+
