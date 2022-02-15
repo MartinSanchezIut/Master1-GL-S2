@@ -17,6 +17,9 @@ const url         = "mongodb://localhost:27017";
 MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     let db = client.db("NomDATABASE");
 
+    console.log("Démarage du serveur node");
+    console.log("avis | produits | recettes | users");
+
     /* Liste détaillé des produits */
     app.get("/produits", (req,res) => {
         console.log("/produits");
