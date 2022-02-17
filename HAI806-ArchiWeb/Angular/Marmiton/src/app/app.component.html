@@ -8,9 +8,10 @@
 <nav id="hideAbleMenu" class="hide-on-large-only hide" > <!-- hide -->
   <div class="nav-wrapper blue lighten-1">
     <ul class="center container">
-      <li class="blue"><a href="#">Recettes</a></li>
+      <li class="blue"><a href="/" routerLink="/" routerLinkActive="active">Home</a></li>
+      <li class="blue"><a href="#" routerLink="/recettes" routerLinkActive="active">Recettes</a></li>
       <li class="blue"><a href="#">Ingrédients</a></li>
-      <li class="blue"><a href="#">Connexion</a></li>
+      <li class="blue"><a href="#" routerLink="/connexion" routerLinkActive="active">Connexion</a></li>
     </ul>
   </div>
 </nav>
@@ -21,15 +22,16 @@
   <div class="nav-wrapper blue lighten-1">
     <a class="brand-logo left unclickableLink" style="padding-left: 75px;"> {{ title }} </a>
     <ul class="right">
-      <li class="blue"><a href="#">Recettes</a></li>
+      <li class="blue"><a href="/" routerLink="/" routerLinkActive="active">Home</a></li>
+      <li class="blue"><a href="#" routerLink="/recettes" routerLinkActive="active">Recettes</a></li>
       <li class="blue"><a href="#">Ingrédients</a></li>
-      <li class="blue"><a href="#">Connexion</a></li>
+      <li class="blue"><a href="#" routerLink="/connexion" routerLinkActive="active">Connexion</a></li>
     </ul>
   </div>
 </nav>
 <br>
 
-
+<!--
 <app-list-recettes></app-list-recettes>
-
+-->
 <router-outlet></router-outlet>

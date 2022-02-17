@@ -4,18 +4,22 @@
         <h3 class="center">Liste des recettes</h3>
 
 
-        <div class="row" *ngFor="let x of recettes">
-            <div class="card blue lighten-1">
-                <div class="card-content blue white-text">
-                <span class="card-title">Nom de la recette : {{x.name}} </span>
+        <div class="row " *ngFor="let x of listRecettes">
+            <div class="card blue lighten-1" style="border-radius: 25px 25px 25px 0px;">
+                <div class="card-content blue white-text" style="border-radius: 25px 25px 0px 0px;">                    
+                    <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ x.nom }} (pour {{ x.nombrePersonnes }} personnes)</span>
+                    <p style="font-size: 18px;">Mode de cuisson : {{ x.modeCuisson }}</p>
+                    <br>
+                    <p style="font-size: 16px; margin-bottom: 0;">Ingrédients : </p>
 
-                <ul>
-                    <li *ngFor="let i of x.ingredients"><p> {{i}} </p>   </li>
-                </ul>
-                
-                </div>
-                <div class="card-action">
-                <a href="#" class="white-text">Plus de détail</a>
+                    <ul>
+                        <li *ngFor="let i of x.ingredients; index as index"><p *ngIf="(index < 3)" style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; {{ index }} - {{ i[0] }} ({{ i[1] }})  </p>   </li>
+                    </ul>
+                    <p style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; ... </p>
+                    
+                    </div>
+                    <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
+                    <a href="#" class="white-text waves-effect waves-light btn blue">Plus de détail</a>
                 </div>
             </div>
         </div>
