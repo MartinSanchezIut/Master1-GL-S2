@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { ListRecettesComponent } from './list-recettes/list-recettes.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { DetailRecetteComponent } from './detail-recette/detail-recette.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListRecettesComponent,
     PagenotfoundComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    DetailRecetteComponent
   ],
   imports: [
     BrowserModule,

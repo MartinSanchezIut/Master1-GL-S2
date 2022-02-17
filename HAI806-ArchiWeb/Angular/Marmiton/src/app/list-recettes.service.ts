@@ -4,14 +4,14 @@ import { Observable } from 'rxjs';
 
 
 export interface Ingredient{
-  //id : String;
+  _id : String;
   nom : String;
   prix : Number;
-  //unite : String;
+  unite : String;
 }
 
 export interface Recette{
-  id : String;
+  _id : String;
   nom : String;
   ingredients : any[];
   modeCuisson : String;
@@ -30,6 +30,12 @@ export class ListRecettesService {
 
   getRecettes(): Observable<Recette[]> {
     return this.http.get<Recette[]>(this.urlBase+'recettes');
+    /*console.dir(ret) ;
+    return ret;*/
+  }
+  getRecetteById(id : String): Observable<Recette> {
+    return this.http.get<Recette[]>(this.urlBase+'recettes')[0];
+
     /*console.dir(ret) ;
     return ret;*/
   }
