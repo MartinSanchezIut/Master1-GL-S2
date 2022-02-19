@@ -18,37 +18,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     let db = client.db("NomDATABASE");
 
     console.log("Démarage du serveur node");
-    console.log("avis | produits | recettes | users");
-
-    /* Liste détaillé des produits */
-    app.get("/produits", (req,res) => {
-        console.log("/produits");
-        try {
-            db.collection("produits").find().toArray((err, documents) => {
-                res.end(JSON.stringify(documents));
-            });
-        } catch(e) {
-            console.log("Erreur sur /produits : " + e);
-            res.end(JSON.stringify([]));
-        }
-    });
-    /* Détail d'un produit */
-    app.get("/produits/:nomProduit", (req,res) => {
-	let nomProduit = req.params.nomProduit;
-        console.log("/produits/"+nomProduit);
-        try {
-            db.collection("produits").find({nom:nomProduit}).toArray((err, documents) => {
-                res.end(JSON.stringify(documents));
-            });
-        } catch(e) {
-            console.log("Erreur sur /produits/"+nomProduit+" : "+ e);
-            res.end(JSON.stringify([]));
-        }
-    });
-
-
-
-
+    console.log("avis | ingredients | recettes | users");
 
     /* Lire n'importe quelle table */
     app.get("/:tab", (req,res) => {
@@ -64,6 +34,30 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
             res.end(JSON.stringify([]));
         }
     });
+
+   /* Lire dans n'importe quelle table, les objets ayant un ID egal a */
+    app.get("/:tab/_id/:valeur", (req,res) => {
+            let tab = req.params.tab ;
+            let val = req.params.valeur;
+
+            console.log("/" + tab + "/_id" + "/" + val);
+
+            try {
+                let s = {"_id": ObjectID(val)} ;
+                returnvalue = [] ;
+                
+                db.collection(tab).find(s).toArray((err, documents) => {
+                    for (let doc of documents) {
+                        returnvalue.push([doc]); 
+                    }
+                    res.end(JSON.stringify(returnvalue));
+		});
+            } catch(e) {
+                console.log("Erreur sur /"+ tab + "/_id" + "/" + val +" : "+ e);
+                res.end(JSON.stringify([]));
+            }
+        });
+
 
     /* Lire dans n'importe quelle table, les objets ayant une attribut egal a une valeur */
     app.get("/:tab/:attribut/:valeur", (req,res) => {
