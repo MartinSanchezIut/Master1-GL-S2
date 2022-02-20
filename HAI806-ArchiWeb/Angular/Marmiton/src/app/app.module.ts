@@ -9,6 +9,7 @@ import { ListRecettesComponent } from './list-recettes/list-recettes.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { DetailRecetteComponent } from './detail-recette/detail-recette.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DetailRecetteComponent } from './detail-recette/detail-recette.componen
     ListRecettesComponent,
     PagenotfoundComponent,
     ConnexionComponent,
-    DetailRecetteComponent
+    DetailRecetteComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,9 @@
             <div class="card blue lighten-1" style="border-radius: 25px 25px 25px 0px;">
                 <div class="card-content blue white-text" style="border-radius: 25px 25px 0px 0px;">                    
                     <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ x.nom }} (pour {{ x.nombrePersonnes }} personnes)</span>
+                    <p class=" center red-text">{{ x._id }}</p>
+
                     <p style="font-size: 18px;">Mode de cuisson : {{ x.modeCuisson }}</p>
-                    <p class="red-text">{{ x._id }}</p>
                     <br>
                     <p style="font-size: 16px; margin-bottom: 0;">Ingrédients : </p>
 
@@ -20,7 +21,7 @@
                     
                     </div>
                     <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
-                    <a href="#" class="white-text waves-effect waves-light btn blue">Plus de détail</a>
+                    <a href="#" [routerLink]="['/recette', x._id]" routerLinkActive="active" class="white-text waves-effect waves-light btn blue">Plus de détail</a>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ListRecettesComponent } from './list-recettes/list-recettes.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 import { DetailRecetteComponent } from './detail-recette/detail-recette.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'recettes', component: ListRecettesComponent },
   { path: 'recette/:id', component: DetailRecetteComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'inscription', component: InscriptionComponent },
   { path: '**', component: PagenotfoundComponent },
 ];
 

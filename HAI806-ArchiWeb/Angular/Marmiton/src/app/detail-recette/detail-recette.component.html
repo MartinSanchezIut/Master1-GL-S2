@@ -1,50 +1,21 @@
-
-
-        <div class="row " *ngFor="let x of listRecettes">
-            <div class="card blue lighten-1" style="border-radius: 25px 25px 25px 0px;">
-                <div class="card-content blue white-text" style="border-radius: 25px 25px 0px 0px;">   
-                    
-                    
-                    <p> {{ x }} </p>                 
-                    
-                    
-                    <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ x.nom }} (pour {{ x.nombrePersonnes }} personnes)</span>
-                    <p style="font-size: 18px;">Mode de cuisson : {{ x.modeCuisson }}</p>
-                    <p class="red-text">{{ x._id }}</p>
-                    <br>
-                    <p style="font-size: 16px; margin-bottom: 0;">Ingrédients : </p>
-
-                    <ul>
-                        <li *ngFor="let i of x.ingredients; index as index"><p *ngIf="(index < 3)" style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; {{ index }} - {{ i[0] }} ({{ i[1] }})  </p>   </li>
-                    </ul>
-                    <p style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; ... </p>
-                    
-                    </div>
-                    <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
-                    <a href="#" class="white-text waves-effect waves-light btn blue">Plus de détail</a>
-                </div>
-            </div>
-        </div>
-
-        <!--
 <div class="container"> 
     <div class="row">
         <div class="card blue lighten-1" style="border-radius: 25px 25px 25px 0px;">
             <div class="card-content blue white-text" style="border-radius: 25px 25px 0px 0px;">                    
-                <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ recette.nom }} (pour {{ recette.nombrePersonnes }} personnes)</span>
-                <p style="font-size: 18px;">Mode de cuisson : {{ recette.modeCuisson }}</p>
+                <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ listRecettes[0].nom }} (pour {{ listRecettes[0].nombrePersonnes }} personnes)</span>
+                <p style="font-size: 18px;">Mode de cuisson : {{ listRecettes[0].modeCuisson }}</p>
                 <br>
                 <p style="font-size: 16px; margin-bottom: 0;">Ingrédients : </p>
 
                 <ul>
-                    <li *ngFor="let i of recette.ingredients; index as index"><p style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; {{ index }} - {{ i[0] }} ({{ i[1] }})  </p>   </li>
+                    <li *ngFor="let i of listRecettes[0].ingredients; index as index"><p style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; {{ index }} - {{ i[0] }} ({{ i[1] }})  </p>   </li>
                 </ul>
                 
                 </div>
-                <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">  -->
+                <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;"> 
                <!-- <a href="#" class="white-text waves-effect waves-light btn blue">Plus de détail</a> -->
-         <!--   </div>
+          </div>
         </div>
     </div>
 
-</div> -->
+</div> 
