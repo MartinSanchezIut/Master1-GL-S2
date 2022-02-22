@@ -1,11 +1,11 @@
 
-<div class="container"> 
+<div id="mainContainer" class="container"> 
 
         <h3 class="center">Liste des recettes</h3>
 
 
-        <div class="row " *ngFor="let x of listRecettes">
-            <div class="card blue lighten-1" style="border-radius: 25px 25px 25px 0px;">
+        <div class="row " *ngFor="let x of listRecettes; index as index">
+            <div *ngIf="index < amount || amount === -1" class="card blue lighten-1" style="border-radius: 25px 25px 25px 0px;">
                 <div class="card-content blue white-text" style="border-radius: 25px 25px 0px 0px;">                    
                     <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ x.nom }} (pour {{ x.nombrePersonnes }} personnes)</span>
                     <p class=" center red-text">{{ x._id }}</p>
@@ -24,8 +24,8 @@
                     <a href="#" [routerLink]="['/recette', x._id]" routerLinkActive="active" class="white-text waves-effect waves-light btn blue">Plus de détail</a>
                 </div>
             </div>
+            <br>
         </div>
-
 </div>
 
  

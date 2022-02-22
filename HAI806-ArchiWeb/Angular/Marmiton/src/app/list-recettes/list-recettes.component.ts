@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ListRecettesService, Recette} from '../list-recettes.service';
 
 @Component({
@@ -7,17 +7,27 @@ import { ListRecettesService, Recette} from '../list-recettes.service';
   styleUrls: ['./list-recettes.component.css']
 })
 export class ListRecettesComponent implements OnInit {
-
-  /*recettes = [{"name" : "Pates carbo", "ingredients" : ["Pates", "oeuf", "lardons", "sel"]},
-          {"name" : "Crepes", "ingredients" : ["Farine", "Sucre", "Oeuf", "Poele"]},
-          {"name" : "Test", "ingredients" : ["a", "b", "c", "d"]}
-  ];*/
-
   public listRecettes: Recette[] = new Array();
 
+  /*
+      Si ce truc est défini (>0): 
+      le module a été appelle pour composer une autre page. EG: homepage
+  */
+  @Input() amount: Number = -1;
   constructor(private recette: ListRecettesService ) { }
 
   ngOnInit(): void {
+    /* 
+      Si je compose une page; je n'utilise pas la class "container"
+    */
+    let mainContainer = document.getElementById("mainContainer");
+    if (this.amount === -1 && mainContainer != null) {
+      mainContainer.classList.add("container");
+    }else {
+      if (mainContainer != null)
+        mainContainer.classList.remove("container");
+    }
+
     console.log("Recup des recettes dans le service");
     this.recette.getRecettes().subscribe(recettes => {
       this.listRecettes = recettes;
