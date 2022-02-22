@@ -16,28 +16,26 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SensorManager mSensorManager;
+
     LinearLayout linear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-
-        List<Sensor> sensorsList = mSensorManager.getSensorList(Sensor.TYPE_ALL);
         linear = new LinearLayout(this);
         linear.setOrientation(LinearLayout.VERTICAL);
 
-        TextView t = new TextView(this);
-        t.setText("     Liste des capteurs trouvés: ");
-        linear.addView(t);
-        for (Sensor s: sensorsList) {
-            t = new TextView(this);
-            t.setText("         " + s.getType() + " " + s.getName());
-            linear.addView(t);
-        }
+        // ----------------------------------------------------------------
+
+        Button bEx1 = new Button(this);
+        bEx1.setText("Exercice 1");
+        bEx1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Exo1.class);
+                startActivity(i);            }
+        });
+        linear.addView(bEx1);
 
         // ----------------------------------------------------------------
 
@@ -46,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         bEx2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent vers l'ex 2
+                Intent i = new Intent(getApplicationContext(), Exo2.class);
+                startActivity(i);
             }
         });
         linear.addView(bEx2);
@@ -71,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
         bEx4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent vers l'ex 4
-            }
+                Intent i = new Intent(getApplicationContext(), Exo4.class);
+                startActivity(i);            }
         });
         linear.addView(bEx4);
 
@@ -95,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
         bEx6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent vers l'ex 6
+                Intent i = new Intent(getApplicationContext(), Exo6.class);
+                startActivity(i);
             }
         });
         linear.addView(bEx6);
