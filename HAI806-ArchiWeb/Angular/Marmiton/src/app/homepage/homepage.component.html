@@ -6,17 +6,17 @@
 
     <br><br>
 
-    <div style="border-radius: 25px;" class="green lighten-4">
-        <span class="flow-text">barre de recherche</span>
+    <div style="border-radius: 25px;" class="card">
+        <app-recherche [isContained]=true></app-recherche>
     </div>
     <br>
     <div class="row">
-        <div style="border-radius: 25px;" class="col s12 m12 l6 teal lighten-4">
+        <div style="border-radius: 25px;" class="col s12 m12 l6">
             <app-list-recettes [amount]=3></app-list-recettes>
         </div>
 
-        <div style="border-radius: 25px;" class="col s12 m12 l6 indigo lighten-4">
-            <span class="flow-text">Liste des ingredients</span>
+        <div style="border-radius: 25px;" class="col s12 m12 l5 offset-l1">
+            <app-liste-ingredients [amount]=5></app-liste-ingredients>
         </div>
     </div>
 

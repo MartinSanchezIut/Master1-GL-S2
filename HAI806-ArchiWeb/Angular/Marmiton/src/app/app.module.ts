@@ -11,6 +11,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { DetailRecetteComponent } from './detail-recette/detail-recette.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { ListeIngredientsComponent } from './liste-ingredients/liste-ingredients.component';
+import { RechercheComponent } from './recherche/recherche.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     ConnexionComponent,
     DetailRecetteComponent,
     InscriptionComponent,
-    HomepageComponent
+    HomepageComponent,
+    ListeIngredientsComponent,
+    RechercheComponent
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,10 @@ export class ListRecettesService {
     return ret;*/
   }
 
+  getIngredients(): Observable<Ingredient[]> {
+    return this.http.get<Ingredient[]>(this.urlBase+'ingredients');
+  }
+
   getRecetteByID(id : String): Observable<Recette[]> {
     return this.http.get<Recette[]>(this.urlBase+'recettes/_id/'+id);
   }

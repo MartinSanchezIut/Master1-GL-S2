@@ -31,6 +31,9 @@ export class ListRecettesComponent implements OnInit {
     console.log("Recup des recettes dans le service");
     this.recette.getRecettes().subscribe(recettes => {
       this.listRecettes = recettes;
+      if (this.amount !== -1) {
+        this.listRecettes  = this.listRecettes .slice(0, Number(this.amount));
+      }
 
     console.dir(this.listRecettes);
     });

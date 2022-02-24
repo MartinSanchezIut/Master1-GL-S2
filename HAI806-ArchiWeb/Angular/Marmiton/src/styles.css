@@ -1,3 +1,35 @@
 .unclickableLink {
     cursor: pointer;
 }
+
+.bold-text {
+  font-weight: bold;
+}
+
+  /* label color */
+.input-field label {
+    color: rgb(0, 0, 0);
+}
+  /* label focus color */
+.input-field input[type=text]:focus + label {
+    color: rgb(11, 65, 167);
+}
+  /* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 1px 0 0 rgb(0, 0, 0);
+}
+  /* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 1px 0 0 rgb(0, 0, 0);
+}
+  /* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid rgb(8, 86, 212);
+    box-shadow: 0 1px 0 0 rgb(2, 36, 129);
+}
+  /* icon prefix focus color */
+.input-field .prefix.active {
+    color: rgb(53, 147, 255);
+}
