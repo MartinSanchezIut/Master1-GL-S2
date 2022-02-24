@@ -1,0 +1,27 @@
+plugins {
+    id 'war'
+    id 'java'
+    id "org.gretty" version "3.0.6"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile('javax.servlet:javax.servlet-api:4.0.1')
+    implementation('org.springframework:spring-context:5.3.10')
+    implementation('org.springframework:spring-web:5.3.10')
+    implementation('org.springframework:spring-webmvc:5.3.10')
+    testImplementation('junit:junit:4.13.2')
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.1')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.8.1')
+}
+
+test {
+    useJUnitPlatform()
+}
