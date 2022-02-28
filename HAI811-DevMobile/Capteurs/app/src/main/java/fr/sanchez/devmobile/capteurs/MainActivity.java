@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
         bEx7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Intent vers l'ex 7
-            }
+                Intent i = new Intent(getApplicationContext(), Exo7.class);
+                startActivity(i);            }
         });
         linear.addView(bEx7);
 
