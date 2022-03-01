@@ -7,9 +7,20 @@
     <br><br>
 
     <div style="border-radius: 25px;" class="card">
+        <br>
         <app-recherche [isContained]=true></app-recherche>
     </div>
     <br>
+    <div style="border-radius: 25px;" class="card">
+        <br>
+        <app-list-recettes [amount]=4></app-list-recettes>
+
+        <div class="center">
+            <a routerLink="/recettes" routerLinkActive="active" style="margin: 20px;" class="waves-effect waves-light btn blue bold-text hoverable">[+] Plus de Recettes [+]</a>
+        </div>
+    </div>
+
+    <!-- 
     <div class="row">
         <div style="border-radius: 25px;" class="col s12 m12 l6">
             <app-list-recettes [amount]=3></app-list-recettes>
@@ -19,6 +30,6 @@
             <app-liste-ingredients [amount]=5></app-liste-ingredients>
         </div>
     </div>
-
+    -->
 
 </div>

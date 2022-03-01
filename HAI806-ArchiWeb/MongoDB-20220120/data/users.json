@@ -1,4 +1,5 @@
 [
+    {"pseudo":"admin", "email":"admin@localhost", "password":"123"},
     {"pseudo":"Martin", "email":"martin.sanchez@etu.umontpellier.fr", "password":"temalatailledurat"},
     {"pseudo":"Matthieu", "email":"matthieu.trinquart@etu.umontpellier.fr", "password":"azerty123456"},
     {"pseudo":"Thomas", "email":"thomas.juliat@etu.umontpellier.fr", "password":"2fast4U"},

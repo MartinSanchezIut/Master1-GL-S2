@@ -92,19 +92,38 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     /* Connexion */
     // Pour tester : curl --data "pseudo=Martin&password=temalatailledurat" http://localhost:8888/user/connexion
     app.post("/user/connexion", (req,res) => {
-        console.log("/utilisateurs/connexion avec "+JSON.stringify(req.body));
+        console.log("/user/connexion avec "+JSON.stringify(req.body));
         try {
-            db.collection("users")
-            .find(req.body)
-            .toArray((err, documents) => {
-                if (documents.length == 1)
-                    res.end(JSON.stringify({"resultat": 1, "message": "Authentification réussie"}));
-                else res.end(JSON.stringify({"resultat": 0, "message": "Email et/ou mot de passe incorrect"}));
-            });
+            if ( (req.body['password'] !== undefined) && ((req.body['email'] !== undefined) || (req.body['pseudo'] !== undefined)) ) {
+         
+		    db.collection("users")
+		    .find(req.body)
+		    .toArray((err, documents) => {
+		        if (documents.length == 1)
+		           res.end(JSON.stringify({"resultat": 1, "message": "Authentification réussie"}));
+		        else res.end(JSON.stringify({"resultat": 0, "message": "Email et/ou mot de passe incorrect"}));
+		    });
+            }else {
+		res.end(JSON.stringify({"resultat": 0, "message": "Elements manquant pour la connexion"}));
+            }
         } catch (e) {
             res.end(JSON.stringify({"resultat": 0, "message": e}));
         }
     });
+    
+    /* Creation d'un compte */
+    // Pour tester : curl --data "pseudo=user&email=user@localhost&password=123" http://localhost:8888/user/inscription
+    app.post("/user/inscription", (req,res) => {
+        console.log("/user/inscription avec "+JSON.stringify(req.body));
+        try {
+            db.collection("users").insertOne(req.body);
+            res.end(JSON.stringify({"resultat": 1, "message": "Inscription réussie"}));
+        } catch (e) {
+            res.end(JSON.stringify({"resultat": 0, "message": e}));
+        }
+    });
+    
+    
 });
 
 // Port d'écoute

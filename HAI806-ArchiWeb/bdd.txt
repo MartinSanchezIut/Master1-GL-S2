@@ -1,0 +1,24 @@
+user : 
+	pseudo
+	email
+	mdp
+	
+	
+avis : 
+	id_recette
+	pseudo_auteur
+	avis
+	date
+	
+	
+	
+recette : 
+	id
+	nom
+	temps de preparation
+	mode de preparation (four, casserole)
+	nombre de personnes
+	
+	liste d'ingredients  : [ Nom ingredient, quantité, unité ]
+	liste d'étapes       : [ description étape ]
+	
