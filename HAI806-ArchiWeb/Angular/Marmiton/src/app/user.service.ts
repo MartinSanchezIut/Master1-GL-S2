@@ -52,10 +52,10 @@ export class UserService {
   }
 
   public isLogged() : boolean {
-    if(localStorage.getItem("user") === null){
-      return true;
-    }else{
+    if(localStorage.getItem("user") === undefined){
       return false;
+    }else{
+      return true;
     }
   }
 }

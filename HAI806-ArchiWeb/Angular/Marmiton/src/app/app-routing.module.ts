@@ -9,11 +9,13 @@ import { DetailRecetteComponent } from './detail-recette/detail-recette.componen
 import { HomepageComponent } from './homepage/homepage.component';
 import { ListeIngredientsComponent } from './liste-ingredients/liste-ingredients.component';
 import { RechercheComponent } from './recherche/recherche.component';
+import { AjouterrecetteComponent } from './ajouterrecette/ajouterrecette.component';
 
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'home', component: HomepageComponent },
+  { path: 'ajouterRecette', component: AjouterrecetteComponent },
   { path: 'recettes', component: ListRecettesComponent },
   { path: 'ingredients', component: ListeIngredientsComponent },
   { path: 'recherche', component: RechercheComponent },

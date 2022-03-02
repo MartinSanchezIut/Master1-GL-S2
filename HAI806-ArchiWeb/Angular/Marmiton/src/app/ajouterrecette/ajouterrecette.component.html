@@ -1,0 +1,64 @@
+<div class="container center">
+    <div class="col s12 m7">
+      <h2 class="header">Ajoutez votre propre recette !!</h2>
+      <div class="card horizontal">
+        <!--  <div class="card-image">
+          <img src="https://lorempixel.com/100/190/nature/6">
+        </div>  -->
+        <div class="card-stacked">
+          
+          <div class="card-content">
+            <form action="#" method="post">
+                <label style="font-size: 18px;" class="black-text"> Le nom de votre recette ?</label>
+                <input type="text" class="black-text input" placeholder="Le nom de votre recette ?" required/>
+
+                <label style="font-size: 18px;" class="black-text"> Combien de temps de préparation ?</label>
+                <input type="text" class="black-text input" placeholder="Combien de temps de préparation ?" required/>
+
+                <label style="font-size: 18px;" class="black-text">Quel mode de préparation ?</label>
+                <input type="text" class="black-text input" placeholder="Quel mode de préparation ?" required/>
+
+                <label style="font-size: 18px;" class="black-text"> Pour combien de personnes ?</label>
+                <input type="text" class="black-text input" placeholder="Pour combien de personnes ?" required/>
+            </form>
+          </div>
+          <br>
+          <div class="card-content">
+            <label style="font-size: 18px;" class="black-text"> Donnez nous la liste des ingrédients !</label>
+            <form action="#" method="post" id="ingredients">
+                <div class="row">
+                    <div class="col m12 l8">
+                        <input type="text" class="black-text input" placeholder="Le nom de l'ingrédient" required/>
+                    </div>
+                    <div class="col m6 l2">
+                        <input type="number" class="black-text input" placeholder="Quantitée" required/>
+                    </div>
+                    <div class="col m6 l2">
+                        <input type="text" class="black-text input" placeholder="Unitée" required/>
+                    </div>
+                  </div>
+
+            </form>
+            <a (click)="ajouterIngredient()" style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn">[+]</a>
+            <a (click)="supprimerIngredient()" style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn">[-]</a>
+
+          </div>
+          <br>
+          <div class="card-content">
+            <label style="font-size: 18px;" class="black-text"> Donnez nous la liste des étapes !</label>
+            <form action="#" method="post" id="etapes">
+                <input type="text" class="black-text input" placeholder="Decrivez ce qu'il faut faire." required/>
+                
+            </form>
+            <a (click)="ajouterEtape()" style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn">[+]</a>
+            <a (click)="supprimerEtape()" style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn">[-]</a>
+    
+          </div>
+  
+          <div class="card-action">
+            <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" routerLink="/home" routerLinkActive="active">Ajoutez ma recette !</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>

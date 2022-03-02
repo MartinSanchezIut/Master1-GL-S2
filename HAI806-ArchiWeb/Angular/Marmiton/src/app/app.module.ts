@@ -13,6 +13,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ListeIngredientsComponent } from './liste-ingredients/liste-ingredients.component';
 import { RechercheComponent } from './recherche/recherche.component';
+import { AjouterrecetteComponent } from './ajouterrecette/ajouterrecette.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RechercheComponent } from './recherche/recherche.component';
     InscriptionComponent,
     HomepageComponent,
     ListeIngredientsComponent,
-    RechercheComponent
+    RechercheComponent,
+    AjouterrecetteComponent
   ],
   imports: [
     BrowserModule,
