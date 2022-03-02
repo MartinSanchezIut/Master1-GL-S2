@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { text } from 'body-parser';
 
 @Component({
   selector: 'app-recherche',
@@ -9,11 +10,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class RechercheComponent implements OnInit {
 
   @Input() isContained = false;
-  
-  // Voir pour envoyer les données vers recherche.html
-  @Output() taglist = false;
-
-//  private searchBar = document.getElementById("autocompleteinput");
 
   constructor(private route: ActivatedRoute, private router : Router ) { }
 
@@ -26,6 +22,21 @@ export class RechercheComponent implements OnInit {
         mainContainer.classList.remove("container");
     }
 
+
+
+    if (!this.isContained) { // Je ne suis pas contenu : Je cherche des tags dans le localStorage
+      if(localStorage.getItem("tagRecherche") !== undefined && localStorage.getItem("tagRecherche") !== null){        
+        let tags = JSON.parse(String (localStorage.getItem("tagRecherche")));
+        console.log(tags);
+        for(let tag of tags) {
+          this.searchBarEvent(tag);
+        }
+        localStorage.removeItem('tagRecherche');
+      }
+
+      // script de recherche !
+
+    }
 
   }
 
@@ -49,10 +60,19 @@ export class RechercheComponent implements OnInit {
   buttonClickAction() : void {
     if (!this.isContained) {
       // Cas de la page complette
-      this.createTag("tag ajoute");
+      this.createTag("Fonction de recherche de recette a faire");
 
     }else {
       // Cas d'une composition (home)
+      let tags : String[] = [];
+
+      document.querySelectorAll('.chip').forEach(function(chip) {
+        let textToAdd = String(chip.firstChild?.textContent);
+        //console.log(chip.firstChild?.textContent);
+        tags.push(textToAdd);
+      });
+      
+      localStorage.setItem('tagRecherche', JSON.stringify(tags));
       this.router.navigate(['/recherche']);
 
     }

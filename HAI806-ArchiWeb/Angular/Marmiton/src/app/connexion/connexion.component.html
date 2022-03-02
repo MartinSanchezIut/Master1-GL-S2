@@ -9,13 +9,14 @@
         
         <div class="card-content">
           <form action="#" method="post">
-            <input type="text" class="black-text input" placeholder="Qui etes vous ?" required autofocus/>
-            <input type="password" class="black-text input" placeholder="Votre mot de passe." required/>
+           <!-- <input #email type="text" class="black-text input" placeholder="Votre email ? (Facultatif)"/> -->
+            <input #pseudo type="text" class="black-text input" placeholder="Votre pseudo ?" required autofocus/>
+            <input #password type="password" class="black-text input" placeholder="Votre mot de passe." required/>
           </form>
         </div>
 
         <div class="card-action">
-          <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" routerLink="/home" routerLinkActive="active">Connexion</a>
+          <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" (click)="this.userService.login(pseudo.value, password.value); " >Connexion</a>
           <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" routerLink="/inscription" routerLinkActive="active">S'inscrire</a>
         </div>
       </div>

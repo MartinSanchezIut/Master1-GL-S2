@@ -95,13 +95,18 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
         console.log("/user/connexion avec "+JSON.stringify(req.body));
         try {
             if ( (req.body['password'] !== undefined) && ((req.body['email'] !== undefined) || (req.body['pseudo'] !== undefined)) ) {
-         
+                 	
 		    db.collection("users")
 		    .find(req.body)
 		    .toArray((err, documents) => {
-		        if (documents.length == 1)
-		           res.end(JSON.stringify({"resultat": 1, "message": "Authentification réussie"}));
-		        else res.end(JSON.stringify({"resultat": 0, "message": "Email et/ou mot de passe incorrect"}));
+		        if (documents.length == 1) {
+		           documents[0]["password"] = "**********";
+		           res.end(JSON.stringify({"resultat": 1, "message": "Authentification réussie", "user": documents[0] }));
+		           
+		           
+		        } else { 
+		        	res.end(JSON.stringify({"resultat": 0, "message": "Email et/ou mot de passe incorrect"}));	
+		        }
 		    });
             }else {
 		res.end(JSON.stringify({"resultat": 0, "message": "Elements manquant pour la connexion"}));

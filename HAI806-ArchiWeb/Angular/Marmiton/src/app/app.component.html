@@ -12,7 +12,11 @@
       <li class="blue hoverable"><a href="#" routerLink="/recettes" routerLinkActive="active">Recettes</a></li>
       <li class="blue hoverable"><a href="#" routerLink="/ingredients" routerLinkActive="active">Ingrédients</a></li>
       <li class="blue hoverable"><a href="#" routerLink="/recherche" routerLinkActive="active">Recherche</a></li>
-      <li class="blue hoverable"><a href="#" routerLink="/connexion" routerLinkActive="active">Connexion</a></li>
+
+
+      <li *ngIf="this.userService.isLogged() === true" class="blue hoverable"><a href="#" routerLink="/connexion" routerLinkActive="active">Connexion</a></li>
+      <li *ngIf="this.userService.isLogged() === false" class="blue hoverable"><a href="#" routerLink="/ajouterRecette" routerLinkActive="active">Ajoutez une recette</a></li>
+      <li *ngIf="this.userService.isLogged() === false" class="blue hoverable"><a href="#" routerLink="/home" routerLinkActive="active" (click)="this.userService.logout()">Deconnexion</a></li>
     </ul>
   </div>
 </nav>
@@ -27,7 +31,11 @@
       <li class="blue hoverable"><a href="#" routerLink="/recettes" routerLinkActive="active">Recettes</a></li>
       <li class="blue hoverable"><a href="#" routerLink="/ingredients" routerLinkActive="active">Ingrédients</a></li>
       <li class="blue hoverable"><a href="#" routerLink="/recherche" routerLinkActive="active">Recherche</a></li>
-      <li class="blue hoverable"><a href="#" routerLink="/connexion" routerLinkActive="active">Connexion</a></li>
+
+
+      <li *ngIf="this.userService.isLogged() === true" class="blue hoverable"><a href="#" routerLink="/connexion" routerLinkActive="active">Connexion</a></li>
+      <li *ngIf="this.userService.isLogged() === false" class="blue hoverable"><a href="#" routerLink="/ajouterRecette" routerLinkActive="active">Ajoutez une recette</a></li>
+      <li *ngIf="this.userService.isLogged() === false" class="blue hoverable"><a href="#" routerLink="/home" routerLinkActive="active" (click)="this.userService.logout();">Deconnexion</a></li>
     </ul>
   </div>
 </nav>

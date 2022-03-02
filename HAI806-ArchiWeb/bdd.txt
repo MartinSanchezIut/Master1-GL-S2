@@ -13,7 +13,6 @@ avis :
 	
 	
 recette : 
-	id
 	nom
 	temps de preparation
 	mode de preparation (four, casserole)

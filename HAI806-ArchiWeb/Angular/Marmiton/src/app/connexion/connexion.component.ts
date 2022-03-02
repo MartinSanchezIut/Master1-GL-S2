@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService, User } from '../user.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService : UserService,
+              public router : Router) { }
 
   ngOnInit(): void {
   }
-
 }
