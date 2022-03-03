@@ -1,7 +1,7 @@
 <div class="container"> 
     <div class="row">
-        <div class="card blue lighten-1" style="border-radius: 25px 25px 25px 0px;">
-            <div class="card-content blue white-text" style="border-radius: 25px 25px 0px 0px;">                    
+        <div class="card " style="border-radius: 25px 25px 25px 0px;">
+            <div class="card-content black-text" style="border-radius: 25px 25px 0px 0px;">                    
                 <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ listRecettes[0].nom }} (pour {{ listRecettes[0].nombrePersonnes }} personnes)</span>
                 <p style="font-size: 18px;">Mode de cuisson : {{ listRecettes[0].modeCuisson }}</p>
                 <br>
@@ -17,5 +17,39 @@
           </div>
         </div>
     </div>
+    <hr><br>
+    
+    <div *ngIf="this.userService.isLogged() === true" id="commentaire" class="col s12" >
+        <div class="card horizontal" style="border-radius: 25px 25px 25px 0px;">
+          <div class="card-stacked">
+            <div class="card-content">
+                <h4 class="header center">Laissez un commentaire !</h4>
+                <textarea id="textarea1" class="materialize-textarea" placeholder="Qu'en pensez vous ??"></textarea>
+                <a style="margin-left: 10px; margin-right: 10px;" class="right hoverable blue lighten-1 white-text waves-effect waves-light btn" >Envoyer</a>
+            </div>
+            <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <h4 class="center">Avis des internautes</h4>
+
+      <div class="row " *ngFor="let x of listAvis; index as index">
+          <div class="card" style="border-radius: 25px 25px 25px 0px;">
+              <div class="card-content black-text" style="border-radius: 25px 25px 0px 0px;">                    
+                  <span style="font-size: 28px;font-weight: 400;" class="card-title center">{{ x.pseudo }}</span>
+                  <p style="font-size: 14px;" class="center">{{ x.date }}</p>
+                  <br>
+                  <p style="font-size: 18px;">{{ x.commentaire }}</p>
+
+
+              </div>
+              <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
+              </div>
+          </div>
+      </div>
+      <br>
 
 </div> 

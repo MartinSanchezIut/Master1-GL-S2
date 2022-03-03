@@ -1,7 +1,7 @@
 <div class="container center">
   <div class="col s12 m7">
     <h2 class="header">Connexion</h2>
-    <div class="card horizontal">
+    <div class="card horizontal"  style="border-radius: 25px 25px 25px 0px;">
       <!--  <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
       </div>  -->
@@ -16,7 +16,7 @@
         </div>
 
         <div class="card-action">
-          <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" (click)="this.userService.login(pseudo.value, password.value); " >Connexion</a>
+          <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" (click)="this.userService.login(pseudo.value, password.value);" >Connexion</a>
           <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" routerLink="/inscription" routerLinkActive="active">S'inscrire</a>
         </div>
       </div>

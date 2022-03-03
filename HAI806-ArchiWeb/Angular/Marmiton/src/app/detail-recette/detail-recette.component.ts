@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListRecettesService, Recette} from '../list-recettes.service';
+import { ListRecettesService, Recette, Avis} from '../list-recettes.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserService, User } from '../user.service';
 
 
 @Component({
@@ -11,10 +12,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DetailRecetteComponent implements OnInit {
 
   public listRecettes: Recette[] = new Array();
+  public listAvis: Avis[] = new Array();
   public id : String = "";
 
   constructor(private route: ActivatedRoute, 
               private rec: ListRecettesService,
+              public userService : UserService,
               private router : Router ) { }
 
   ngOnInit(): void {
@@ -36,6 +39,12 @@ export class DetailRecetteComponent implements OnInit {
       if (! isFound) {
         this.router.navigate(['/recetteNotFoundError']);
       }
+    });
+
+    console.log("Recup des avis dans le service");
+    this.rec.getAvis().subscribe(avis => {
+      this.listAvis = avis;
+      console.dir(this.listAvis);
     });
   }
   

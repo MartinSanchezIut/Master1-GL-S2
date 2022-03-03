@@ -1,7 +1,7 @@
 <div class="container center">
     <div class="col s12 m7">
       <h2 class="header">Inscrivez vous pour ajouter des recettes !</h2>
-      <div class="card horizontal">
+      <div class="card horizontal"  style="border-radius: 25px 25px 25px 0px;">
         <!--  <div class="card-image">
           <img src="https://lorempixel.com/100/190/nature/6">
         </div>  -->
@@ -9,14 +9,14 @@
           
           <div class="card-content">
             <form action="#" method="post">
-                <input type="text" class="black-text input" placeholder="Quel est votre email ?" required autofocus/>
-                <input type="text" class="black-text input" placeholder="Comment voulez vous qu'on vous appelle ?" required autofocus/>
-                <input type="password" class="black-text input" placeholder="Votre mot de passe." required/>
+                <input #mail type="email" class="black-text input" placeholder="Quel est votre email ?" required autofocus/>
+                <input #pseudo type="text" class="black-text input" placeholder="Comment voulez vous qu'on vous appelle ?" required/>
+                <input #password type="password" class="black-text input" placeholder="Votre mot de passe." required/>
             </form>
           </div>
   
           <div class="card-action">
-            <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" routerLink="/home" routerLinkActive="active">Je m'inscrit</a>
+            <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" (click)="this.sendForm(mail.value, pseudo.value, password.value);">Je m'inscrit</a>
             <a style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 white-text waves-effect waves-light btn" href="#" routerLink="/connexion" routerLinkActive="active">J'ai déja un compte !</a>          
         </div>
         </div>

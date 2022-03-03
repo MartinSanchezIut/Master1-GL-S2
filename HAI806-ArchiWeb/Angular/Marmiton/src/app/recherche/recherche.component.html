@@ -1,34 +1,38 @@
 
-<div id="mainContainer3" class="container"> 
+<div id="mainContainer3" class="container "> 
 
-    <h3 class="center">Vous cherchez une recette ??</h3>
+    <div class="card" style="border-radius: 25px 25px 25px 0px;">
+        <br>
 
-    <p style="font-size: 18px;" class="center">Dites nous tout, le nom de la recette ? Quels ingrédients elle contient ?  Qui est l'auteur ?</p>
-    <p style="font-size: 18px;" class="center"> Nous chercherons vos mot clés dans les noms de recettes, les ingrédients </p>
+        <h3 class="center">Vous cherchez une recette ??</h3>
 
-    <div class="center ">
-        <div>
-            <div class="row">
-            <div class="col s10 offset-s1">
-                    <div class="input-field">
-                        <i class="material-icons prefix">search</i>
-                        <input #autocompleteinput type="text" (keyup.enter)="searchBarEvent(autocompleteinput.value); autocompleteinput.value = ''">
-                        <label for="autocompleteinput">Qu'est ce que vous cherchez ??</label>
+        <p style="font-size: 18px;" class="center">Dites nous tout, le nom de la recette ? Quels ingrédients elle contient ?  Qui est l'auteur ?</p>
+        <p style="font-size: 18px;" class="center"> Nous chercherons vos mot clés dans les noms de recettes, les ingrédients </p>
+
+        <div class="center ">
+            <div>
+                <div class="row">
+                <div class="col s10 offset-s1">
+                        <div class="input-field">
+                            <i class="material-icons prefix">search</i>
+                            <input #autocompleteinput type="text" (keyup.enter)="searchBarEvent(autocompleteinput.value); autocompleteinput.value = ''">
+                            <label for="autocompleteinput">Qu'est ce que vous cherchez ??</label>
+                        </div>
                     </div>
                 </div>
+        
+                <div id="listOfChips">
+                <!-- <div class="chip blue lighten-1 white-text hoverable"> Test <i class="close material-icons">close</i> </div> -->
+                </div>
+
             </div>
-    
-            <div id="listOfChips">
-               <!-- <div class="chip blue lighten-1 white-text hoverable"> Test <i class="close material-icons">close</i> </div> -->
-            </div>
+            <a (click)="buttonClickAction()" style="margin: 20px;" class="waves-effect waves-light btn blue bold-text hoverable"><i class="material-icons left">search</i>Chercher</a>
 
         </div>
-        <a (click)="buttonClickAction()" style="margin: 20px;" class="waves-effect waves-light btn blue bold-text hoverable"><i class="material-icons left">search</i>Chercher</a>
 
+        
+
+        <br>
     </div>
-
-      
-
-    <br>
 </div>
 

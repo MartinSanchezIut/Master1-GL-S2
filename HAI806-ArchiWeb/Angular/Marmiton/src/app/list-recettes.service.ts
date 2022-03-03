@@ -18,6 +18,14 @@ export interface Recette{
   nombrePersonnes : Number;
 }
 
+export interface Avis{
+  _id : String;
+  pseudo : String;
+  nomrecette : String;
+  commentaire : String;
+  date : String;
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +40,10 @@ export class ListRecettesService {
     return this.http.get<Recette[]>(this.urlBase+'recettes');
     /*console.dir(ret) ;
     return ret;*/
+  }
+
+  getAvis(): Observable<Avis[]> {
+    return this.http.get<Avis[]>(this.urlBase+'avis');
   }
 
   getIngredients(): Observable<Ingredient[]> {

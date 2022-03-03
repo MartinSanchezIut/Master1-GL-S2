@@ -22,7 +22,7 @@ export class ListeIngredientsComponent implements OnInit {
       Si je compose une page; je n'utilise pas la class "container"
     */
     let mainContainer = document.getElementById("mainContainer2");
-    console.log(mainContainer) ;
+//    console.log(mainContainer) ;
     if (this.amount === -1 && mainContainer != null) {
       mainContainer.classList.add("container");
     }else {
@@ -30,13 +30,13 @@ export class ListeIngredientsComponent implements OnInit {
         mainContainer.classList.remove("container");
     }
 
-    console.log("Recup des ingredients dans le service");
+ //   console.log("Recup des ingredients dans le service");
     this.recette.getIngredients().subscribe(ingre => {
       this.listIngredients = ingre;
       if (this.amount !== -1) {
         this.listIngredients  = this.listIngredients .slice(0, Number(this.amount));
       }
-    console.dir(this.listIngredients);
+  //  console.dir(this.listIngredients);
     });
   }
 

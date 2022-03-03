@@ -35,7 +35,7 @@ export class ListRecettesComponent implements OnInit {
         this.listRecettes  = this.listRecettes .slice(0, Number(this.amount));
       }
 
-    console.dir(this.listRecettes);
+    //console.dir(this.listRecettes);
     });
   }
 
