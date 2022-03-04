@@ -1,7 +1,305 @@
 [
-    {"nom":"Lasagnes", "ingredients":[["tomates", 4], ["fromage rape", 200], ["pâte", 132], ["viande hachée", 200]], "modeCuisson":"four", "nombrePersonnes":"2"},
-    {"nom":"Crêpes", "ingredients":[["oeufs", 6], ["lait", 0.75], ["farine", 500], ["sucre vanillé", 40], ["fleur d'oranger", 0.03]], "modeCuisson":"crepiere", "nombrePersonnes":"4"},
-    {"nom":"Ratatouille", "ingredients":[["tomates", 3], ["aubergine", 1], ["courgettes", 2], ["lardons", 250], ["poivrons", 2]], "modeCuisson":"poêle", "nombrePersonnes":"3"},
-    {"nom":"Sushis", "ingredients":[["riz", 0.2], ["saumon", 100], ["concombre", 1], ["avocat", 1]], "modeCuisson":"casserole", "nombrePersonnes":"2"},
-    {"nom":"Gateau au chocolat", "ingredients":[["oeufs", 4], ["farine", 400], ["lait", 0.2], ["chocolat noir", 100]], "modeCuisson":"four", "nombrePersonnes":"4"}
+    {"nom":"Tacos mexicains", 
+        "tps_prep":"55min", 
+        "difficulte":"Tres facile", 
+        "mode_prep":"Poele", 
+        "nb_pers":"4", 
+        "id_auteur":"<none>", 
+        "pseudo_auteur":"<none>", 
+        "date":"04/03/2022", 
+        "ingredients":[{"nom":"Tomates", "quantite":"2", "unite":""},
+            {"nom":"Haricots rouges", "quantite":"100", "unite":"g"},
+            {"nom":"Cumin en poudre", "quantite":"5", "unite":"g"},
+            {"nom":"Poivre", "quantite":"", "unite":""},
+            {"nom":"Sel", "quantite":"", "unite":""},
+            {"nom":"Tabasco (Facultatif)", "quantite":"", "unite":""},
+            {"nom":"Tortillas", "quantite":"8", "unite":""},
+            {"nom":"Oignon blanc", "quantite":"1", "unite":""},
+            {"nom":"Coulis de tomate", "quantite":"1", "unite":"verre"},
+            {"nom":"Viande hache", "quantite":"250", "unite":"g"},
+            {"nom":"Poivron vert", "quantite":"0.5", "unite":""},
+            {"nom":"Laitue", "quantite":"8", "unite":"feuilles"}
+        ], 
+        "etapes":[
+            ["A la poêle, faire dorer l'oignon émincé dans un peu d'huile d'olive."],
+            ["Rajouter la viande, assaisonner et laisser cuire 5 min."],
+            ["Laver les feuilles de laitue."],
+            ["Couper les tomates et le poivron en petits dés."],
+            ["Incorporer le tout à la poêlée avec le coulis de tomate, et poursuivre la cuisson pendant 5 min."],
+            ["Egoutter les haricots rouges et les ajouter 2 min avant la fin de cuisson."],
+            ["Hors du feu, ajuster l'assaisonnement et saupoudrer généreusement de cumin; on peut aussi rajouter quelques gouttes de Tabasco."],
+            ["Garnir les tortillas de préparation et les refermer en les roulant comme des crêpes. Disposer 1 feuille de laitue sur chaque tacos avant de servir."]
+        ]
+    },
+
+
+    {"nom":"Oeuf mimosa", 
+        "tps_prep":"35min", 
+        "difficulte":"Facile", 
+        "mode_prep":"Casserole", 
+        "nb_pers":"4", 
+        "id_auteur":"<none>", 
+        "pseudo_auteur":"<none>", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Poivre", "quantite":"", "unite":""}, 
+            {"nom":"Sel", "quantite":"", "unite":""}, 
+            {"nom":"Persil", "quantite":"", "unite":""}, 
+            {"nom":"Moutarde", "quantite":"1", "unite":"Cuillere a cafe"}, 
+            {"nom":"Huile", "quantite":"1/4", "unite":"l"}, 
+            {"nom":"Jus de citron (Facultatif)", "quantite":"", "unite":""}, 
+            {"nom":"Oeuf", "quantite":"4", "unite":""}, 
+            {"nom":"Mayonnaise", "quantite":"150", "unite":"g"}, 
+            {"nom":"Laitue", "quantite":"", "unite":""}, 
+            {"nom":"Olives noires (facultatif)", "quantite":"", "unite":""}, 
+            {"nom":"Jaune d'oeuf", "quantite":"1", "unite":""} 
+        ],"etapes":[ 
+            ["Faire cuire les oeufs 10 mn dans l'eau bouillante, puis les mettre dans l'eau froide pour arrêter la cuisson."], 
+            ["Monter une mayonnaise avec 1 jaune d'oeuf, 1 cuillère à café de moutarde, 1/4 l d'huile et du jus de citron (facultatif), ou utiliser une mayonnaise prête vendue dans le commerce. Le jus de citron s'ajoute au dernier moment."], 
+            ["Ecaler les oeufs, les couper dans le sens de la longueur, puis séparer les blancs des jaunes."], 
+            ["Dans une assiette creuse, émietter les jaunes à la fourchette, mélanger la moitié de ces jaunes émiettés avec la mayonnaise et réserver le reste."], 
+            ["Remplir les demi-blancs de cette préparation, puis saupoudrer chaque demi-oeuf du reste de jaunes émiettés (ce qui fait le mimosa !!)."], 
+            ["Disposer les oeufs sur des feuilles de laitue, mettre sur chaque oeuf un peu de persil et une olive noire. Servir frais."]
+        ]
+    },
+       
+
+    {"nom":"Velouté de potiron", 
+        "tps_prep":"1h15min", 
+        "difficulte":"Tres facile", 
+        "mode_prep":"Casserole", 
+        "nb_pers":"2", 
+        "id_auteur":"<none>", 
+        "pseudo_auteur":"<none>", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Oignon", "quantite":"1/2", "unite":""}, 
+            {"nom":"Poivre", "quantite":"", "unite":""}, 
+            {"nom":"Sel", "quantite":"", "unite":""}, 
+            {"nom":"Muscade en poudre", "quantite":"", "unite":""}, 
+            {"nom":"Huile", "quantite":"", "unite":""}, 
+            {"nom":"Persil", "quantite":"", "unite":""}, 
+            {"nom":"Potiron", "quantite":"1/2", "unite":"Quartier"}, 
+            {"nom":"Creme fraiche", "quantite":"1/2", "unite":"Brique"}
+        ],"etapes":[ 
+            ["Couper la chair du potiron en gros dés."], 
+            ["Couper l'oignon en lamelles et le faire revenir dans une cocotte avec un peu d'huile."], 
+            ["Ajouter les dés de courge dans la cocotte et recouvrir d'eau (juste au niveau de la courge, pas plus). Laisser bouillir environ 45 min à 1 h."], 
+            ["Ajouter la crème liquide, saler, poivrer et ajouter de la muscade selon votre goût. Mixer."], 
+            ["Au moment de servir, parsemer de persil ciselé."]
+        ]
+    },
+
+    
+    {"nom":"Gressins au sesame", 
+        "tps_prep":"25min", 
+        "difficulte":"Facile", 
+        "mode_prep":"Four", 
+        "nb_pers":"4", 
+        "id_auteur":"<Julien>", 
+        "pseudo_auteur":"<Julien>", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Farine de sarrasin", "quantite":"200", "unite":"g"}, 
+            {"nom":"Pourdre d'amandes", "quantite":"80", "unite":"g"}, 
+            {"nom":"Petit-suisse", "quantite":"2", "unite":"pots"}, 
+            {"nom":"Graines de sesame", "quantite":"2", "unite":"c. à soupe"}
+        ],"etapes":[ 
+            ["Melangez la poudre d'amandes, la farine et les petits-suisses jusqu'à obtenir une pâte homogène. Préchauffez le four à 180°C dans un même temps."], 
+            ["Separez la pâte en petits pâtons. Façonnez les gressins. Recouvrez-les de sesame."], 
+            ["Disposez les gressins dans un plat couvert de papier cuisson et laissez cuire 10min à 180°C."], 
+            ["Dégustez tièdes, accompagnés d'avocats écrasés."]
+        ]
+    },
+
+
+    {"nom":"Quiche aux poireaux", 
+        "tps_prep":"1h10min", 
+        "difficulte":"Facile", 
+        "mode_prep":"Four", 
+        "nb_pers":"6", 
+        "id_auteur":"<none>", 
+        "pseudo_auteur":"<none>", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Pate brisee", "quantite":"1", "unite":""}, 
+            {"nom":"Poireau", "quantite":"250", "unite":"g"}, 
+            {"nom":"Creme fraiche", "quantite":"25", "unite":"cl"}, 
+            {"nom":"Lait", "quantite":"20", "unite":"cl"}, 
+            {"nom":"Beurre", "quantite":"50", "unite":"g"}, 
+            {"nom":"Muscade", "quantite":"", "unite":""}, 
+            {"nom":"Poivre", "quantite":"", "unite":""}, 
+            {"nom":"Sel", "quantite":"", "unite":""}, 
+            {"nom":"Oeuf", "quantite":"4", "unite":""}, 
+            {"nom":"Chapelure", "quantite":"", "unite":""}
+        ],"etapes":[ 
+            ["Lavez et coupez les blancs de poireaux en tronçons."], 
+            ["Faites-les cuire dans une sauteuse couverte avec le beurre"], 
+            ["et un peu d'eau environ 20 minutes."], 
+            ["Une fois cuits, travaillez-les en purée à la fourchette."], 
+            ["Etalez la pâte dans un moule, piquez-la à la fourchette."], 
+            ["Saupoudrez de chapelure et étalez la purée de poireaux."], 
+            ["Battez les oeufs avec la crème et le lait, sel, poivre et une pincée de muscade."], 
+            ["Versez sur les poireaux et saupoudrez de chapelure."], 
+            ["Faites cuire 40 min au four préchauffé à 220°C (thermostat 7-8)."]
+        ]
+    },
+
+
+    {"nom":"Houmous de panais à la coriandre", 
+        "tps_prep":"40min", 
+        "difficulte":"Facile", 
+        "mode_prep":"Cuisson-vapeur", 
+        "nb_pers":"4", 
+        "id_auteur":"Julien", 
+        "pseudo_auteur":"Julien", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Panais", "quantite":"1", "unite":"pièce"}, 
+            {"nom":"Coriandre", "quantite":"1", "unite":"botte"}, 
+            {"nom":"Curry", "quantite":"2", "unite":"c. à soupe"}, 
+            {"nom":"Fromage blanc", "quantite":"2", "unite":"c. à soupe"}, 
+            {"nom":"Huile d'olive", "quantite":"1", "unite":"c. à soupe"}
+        ],"etapes":[ 
+            ["Epluchez et faites cuire le panais 25min au cuit-vapeur."], 
+            ["Ecrasez-les avec un presse-purée puis ajoutez la coriandre lavée et hachée, le curry, le fromage blanc et l'huile d'olive."], 
+            ["Salez à votre convenance et dégustez froid avec des bâtonnets de légumes."]
+        ]
+    },
+        
+
+
+    {"nom":"Pancakes", 
+        "tps_prep":"15min", 
+        "difficulte":"Tres facile", 
+        "mode_prep":"Poele", 
+        "nb_pers":"2", 
+        "id_auteur":"<none>", 
+        "pseudo_auteur":"<none>", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Sucre", "quantite":"1", "unite":"c. a soupe"}, 
+            {"nom":"Huile", "quantite":"1", "unite":"c. a soupe"}, 
+            {"nom":"Farine", "quantite":"150", "unite":"g"}, 
+            {"nom":"Levure", "quantite":"1", "unite":"c. a cafe"}, 
+            {"nom":"Lait", "quantite":"200", "unite":"ml"}, 
+            {"nom":"Oeuf", "quantite":"1", "unite":""}
+        ],"etapes":[ 
+            ["Battre grossièrement l'oeuf et le sucre dans un saladier."], 
+            ["Y rajouter le beurre fondu ou l'huile."], 
+            ["Mélanger à part la farine et la levure, puis en mélanger la moitié avec la préparation."], 
+            ["Délayer progressivement avec le lait tout en rajoutant l'autre moitié de farine petit à petit (cela évitera de créer des grumeaux)."], 
+            ["Aucun temps de repos n'est nécessaire, si ce n'est juste le temps de faire chauffer votre poêle à feu moyen. Huilez ou beurrez la poêle à l'aide de papier essuie-tout."], 
+            ["A l'aide d'une petite louche ou d'une grosse cuillère à sauce, déposer des 'ronds' dans la poêle."], 
+            ["Lorsque les bulles apparaissent et éclatent, retourner les pancakes et ne pas les laisser plus d'une min sur l'autre face."]
+        ]
+    },
+        
+
+    {"nom":"Rouleaux de printemps à la poire", 
+        "tps_prep":"10min", 
+        "difficulte":"Facile", 
+        "mode_prep":"Sans cuisson", 
+        "nb_pers":"4", 
+        "id_auteur":"Julien", 
+        "pseudo_auteur":"Julien", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Poire", "quantite":"2", "unite":"pièces"}, 
+            {"nom":"Viande de grisons", "quantite":"4", "unite":"tranches"}, 
+            {"nom":"Roquette", "quantite":"100", "unite":"g"}, 
+            {"nom":"Coriandre", "quantite":"1", "unite":"botte"}, 
+            {"nom":"Galette de riz", "quantite":"8", "unite":"pièces"}
+        ],"etapes":[ 
+            ["Epluchez et coupez les poires en huit. Lavez et séchez la coriandre et la roquette."], 
+            ["Peu de temps avant de déguster, trempez les galettes dans un saladier d'eau et disposez-les sur le plan de travail le côté lisse vers le bas."], 
+            ["Répartissez les ingrédients sur la partie supérieure des galettes, puis roulez en serrant bien."], 
+            ["Dégustez entier ou en morceaux."]
+        ]
+    }, 
+
+
+    {"nom":"Cookies", 
+        "tps_prep":"25min", 
+        "difficulte":"Facile", 
+        "mode_prep":"Four", 
+        "nb_pers":"4", 
+        "id_auteur":"<none>", 
+        "pseudo_auteur":"<none>", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Beurre", "quantite":"85", "unite":"g"}, 
+            {"nom":"Sucre", "quantite":"85", "unite":"g"}, 
+            {"nom":"Sucre vanille", "quantite":"1", "unite":"sachet"}, 
+            {"nom":"Farine", "quantite":"150", "unite":"g"}, 
+            {"nom":"Chocolat noir", "quantite":"100", "unite":"g"}, 
+            {"nom":"Sel", "quantite":"1", "unite":"c. a cafe"}, 
+            {"nom":"Levure chimique", "quantite":"1", "unite":"c. a cafe"}, 
+            {"nom":"Oeuf", "quantite":"1", "unite":""}
+        ],"etapes":[ 
+            ["Détailler le chocolat en pépites."], 
+            ["Préchauffer le four à 180°C (thermostat 6). Dans un saladier, mettre 75 g de beurre, le sucre, l'oeuf entier, la vanille et mélanger le tout."], 
+            ["Ajouter petit à petit la farine mélangée à la levure, le sel et le chocolat."], 
+            ["Avec une feuille de papier essuie-tout, beurrer une plaque allant au four et former les cookies sur la plaque."], 
+            ["Pour former les cookies, utiliser 2 cuillères à soupe et faire des petits tas espacés les uns des autres; ils grandiront à la cuisson."], 
+            ["Enfourner pour 10 minutes de cuisson."]
+        ]
+    },
+        
+
+    {"nom":"Flan patissier", 
+        "tps_prep":"1h", 
+        "difficulte":"Moyenne", 
+        "mode_prep":"Four", 
+        "nb_pers":"8", 
+        "id_auteur":"<none>", 
+        "pseudo_auteur":"<none>", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Pate brisee", "quantite":"1", "unite":""}, 
+            {"nom":"Lait", "quantite":"1", "unite":"l"}, 
+            {"nom":"Sucre", "quantite":"150", "unite":"g"}, 
+            {"nom":"Maizena", "quantite":"90", "unite":"g"}, 
+            {"nom":"Vanille", "quantite":"1", "unite":"gousse"}, 
+            {"nom":"Oeuf", "quantite":"4", "unite":""}
+        ],"etapes":[ 
+            ["Faire bouillir le lait avec la gousse de vanille fendue (dans le sens de la longueur)."], 
+            ["Pendant ce temps, mélanger la Maïzena (tamisée, c'est mieux) avec le sucre."], 
+            ["et ajouter les oeufs bien battus."], 
+            ["Mélanger le tout (bien homogène)"], 
+            ["et ajouter le lait bouillant (sans la gousse)."], 
+            ["Cuire la préparation à feu doux sans cesser de remuer pendant environ 1 à 2 min"], 
+            ["Préchauffer le four à 200°C (thermostat 6-7). Foncer un plat rectangulaire ou rond préalablement beurré avec la pâte brisée."], 
+            ["Piquer le fond."], 
+            ["Y verser la préparation."], 
+            ["Lisser la surface."], 
+            ["Cuire pendant environ 30 à 40 min."], 
+            ["Laisser refroidir."], 
+            ["Déguster."]
+        ]
+    },
+
+
+    {"nom":"Salade de fruits au vin rosé", 
+        "tps_prep":"25min", 
+        "difficulte":"Facile", 
+        "mode_prep":"Sans cuisson", 
+        "nb_pers":"4", 
+        "id_auteur":"Julien", 
+        "pseudo_auteur":"Julien", 
+        "date":"04/03/2022", 
+        "ingredients":[ 
+            {"nom":"Melons", "quantite":"2", "unite":"pièces"}, 
+            {"nom":"Pastèque", "quantite":"200", "unite":"g"}, 
+            {"nom":"Myrtilles", "quantite":"100", "unite":"g"}, 
+            {"nom":"Framboise", "quantite":"200", "unite":"g"}, 
+            {"nom":"Vin rosé", "quantite":"50", "unite":"cL"}
+        ],"etapes":[ 
+            ["Coupez les melons en 2. Evidez-les et coupez la chair en petits morceaux. Mélangez-les avec les myrtilles, les framboises coupées en 2 et la pastèque taillée en morceaux."], 
+            ["Répartissez les fruits dans les 4 moitiés de melon. Versez le rosé et laissez mariner 15min au frais avant de servir."], 
+            ["Dégustez au soleil entre amis."]
+        ]
+    }
+    
+    
 ]

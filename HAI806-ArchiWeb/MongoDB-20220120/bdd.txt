@@ -1,0 +1,32 @@
+user :  // Fait
+	pseudo			: Pseudo de l'utilisateur
+	email			: Email de l'utilisateur
+	password		: Mot de passe de l'utilisateur
+	permLevel		: Niveau de permission de l'utilisateur
+	
+	
+avis : 
+	id_recette		: Identifiant de la recette
+	id_auteur		: Identifiant de l'auteur
+	pseudo_auteur	: Pseudo de l'auteur de l'avis
+	avis			: L'avis / commentaire
+	date			: La date de publication
+	
+	
+	
+recette : 
+	nom											: Le nom de la recette														
+	tps_prep									: Temps de préparation
+	difficulte									: Difficulte de la recette
+	mode_prep									: Mode de preparation  (four, casserole)
+	nb_pers										: Nombre de personnes
+
+	id_auteur									: Identifiant de l'auteur
+	pseudo_auteur								: Pseudo de l'auteur	
+	date										: Date de mise en ligne
+
+	liste d'ingredients  
+		[ Nom ingredient, quantité, unité ]
+	liste d'étapes
+		[ description étape ]
+	

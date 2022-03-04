@@ -1,0 +1,7 @@
+[
+    {"nom":"Lasagnes", "ingredients":[["tomates", 4], ["fromage rape", 200], ["pâte", 132], ["viande hachée", 200]], "modeCuisson":"four", "nombrePersonnes":"2"},
+    {"nom":"Crêpes", "ingredients":[["oeufs", 6], ["lait", 0.75], ["farine", 500], ["sucre vanillé", 40], ["fleur d'oranger", 0.03]], "modeCuisson":"crepiere", "nombrePersonnes":"4"},
+    {"nom":"Ratatouille", "ingredients":[["tomates", 3], ["aubergine", 1], ["courgettes", 2], ["lardons", 250], ["poivrons", 2]], "modeCuisson":"poêle", "nombrePersonnes":"3"},
+    {"nom":"Sushis", "ingredients":[["riz", 0.2], ["saumon", 100], ["concombre", 1], ["avocat", 1]], "modeCuisson":"casserole", "nombrePersonnes":"2"},
+    {"nom":"Gateau au chocolat", "ingredients":[["oeufs", 4], ["farine", 400], ["lait", 0.2], ["chocolat noir", 100]], "modeCuisson":"four", "nombrePersonnes":"4"}
+]
