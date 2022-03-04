@@ -7,18 +7,39 @@
         <div class="row " *ngFor="let x of listRecettes; index as index">
             <div *ngIf="index < amount || amount === -1" class="card " style="border-radius: 25px 25px 25px 0px;">
                 <div class="card-content black-text" style="border-radius: 25px 25px 0px 0px;">                    
-                    <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ x.nom }} (pour {{ x.nombrePersonnes }} personnes)</span>
-                    <p class=" center red-text">{{ x._id }}</p>
+                    <p style="font-size: 12px;" class=" center red-text">{{ x._id }}</p>
 
-                    <p style="font-size: 18px;">Mode de cuisson : {{ x.modeCuisson }}</p>
+                    <span style="font-size: 28px;font-weight: 400;" class="card-title center">{{ x.nom }} (pour {{ x.nb_pers }} personnes)</span>
+
+                    <div class="row">
+                        <div class="col s4"> <p class="center" style="font-size: 18px;">En : {{ x.tps_prep }}</p> </div>
+                        <div class="col s4"> <p class="center" style="font-size: 18px;">Mode de préparation : {{ x.mode_prep }}</p> </div>
+                        <div class="col s4"> <p class="center" style="font-size: 18px;">Difficulté : {{ x.difficulte }}</p> </div>
+                      </div>
+
                     <br>
-                    <p style="font-size: 16px; margin-bottom: 0;">Ingrédients : </p>
-
+                    <p style="font-size: 18px; margin-bottom: 0;">Ingrédients : </p>
                     <ul>
-                        <li *ngFor="let i of x.ingredients; index as index"><p *ngIf="(index < 3)" style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; {{ index }} - {{ i[0] }} ({{ i[1] }})  </p>   </li>
+                        <li *ngFor="let i of x.ingredients; index as index">
+                            <p *ngIf="(index < 4)" style="font-size: 18px;"> &nbsp;&nbsp;&nbsp; {{ index }} - &nbsp;{{ i.quantite }}{{ i.unite}} {{ i.nom }}  </p>
+                        </li>
                     </ul>
-                    <p style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; ... </p>
+                    <p style="font-size: 18px;"> &nbsp;&nbsp;&nbsp; ... </p>
                     
+                    <br><hr><br>
+
+                    <p style="font-size: 18px; margin-bottom: 0;">Etapes : </p>
+                    <ul>
+                        <li *ngFor="let i of x.etapes; index as index">
+                            <p *ngIf="(index < 4)" style="font-size: 18px;"> &nbsp;&nbsp;&nbsp; {{ index }} - &nbsp;{{ i[0] }} </p>
+                        </li>
+                    </ul>
+                    <p style="font-size: 18px;"> &nbsp;&nbsp;&nbsp; ... </p>
+
+                    <br>
+                    <br>
+
+                    <p class="center" style="font-size: 16px;">Par {{ x.pseudo_auteur }} le {{x.date}}</p>
                 </div>
                 <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
                     <a href="#" [routerLink]="['/recette', x._id]" routerLinkActive="active" class="hoverable white-text waves-effect waves-light btn blue">Plus de détail</a>

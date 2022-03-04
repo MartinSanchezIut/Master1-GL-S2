@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -16,6 +15,7 @@ export interface User{
   pseudo : String;
   email : String;
   password : String;
+  permLevel : Number;
 }
 
 
@@ -61,6 +61,12 @@ export class UserService {
     return this.http.get<User[]>(this.urlBase + "users");
   }
 
+  public getLoggedUser() : User{
+      let user : User = JSON.parse( String(localStorage['user'] )  );
+      return user;
+  }
+
+
   public register(email: String, pseudo : String, password : String) {
     // console.log("Tentative d'inscription");
     let serverCall : Observable<serverResponse> = this.http.post<serverResponse>(this.urlBase  + "user/inscription", {email, pseudo, password});
@@ -73,7 +79,7 @@ export class UserService {
         alert(val.message);
       }
     });
-    return this.http.post(this.urlBase  + "user/inscription", {email, pseudo, password});
+    //return this.http.post(this.urlBase  + "user/inscription", {email, pseudo, password});
   }
 
   public isLogged() : boolean {

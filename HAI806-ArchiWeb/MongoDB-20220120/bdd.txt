@@ -14,7 +14,7 @@ avis :
 	
 	
 	
-recette : 
+recette :  // Fait
 	nom											: Le nom de la recette														
 	tps_prep									: Temps de préparation
 	difficulte									: Difficulte de la recette

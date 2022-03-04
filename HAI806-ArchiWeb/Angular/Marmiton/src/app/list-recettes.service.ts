@@ -1,28 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { serverResponse } from './user.service';
 
 export interface Ingredient{
-  _id : String;
   nom : String;
-  prix : Number;
+  quantite : String;
   unite : String;
 }
 
 export interface Recette{
   _id : String;
   nom : String;
-  ingredients : any[];
-  modeCuisson : String;
-  nombrePersonnes : Number;
+  tps_prep : String;
+  difficulte : String;
+  mode_prep : String;
+  nb_pers : String;
+
+  id_auteur : String;
+  pseudo_auteur : String;
+  date : String;
+
+  ingredients : Ingredient[];
+  etapes : any[]
 }
 
+// Pas encore fait
 export interface Avis{
   _id : String;
-  pseudo : String;
-  nomrecette : String;
-  commentaire : String;
+  id_recette : String;
+  id_auteur : String;
+  pseudo_auteur : String;
+  avis : String;
   date : String;
 }
 
@@ -45,6 +54,22 @@ export class ListRecettesService {
   getAvis(): Observable<Avis[]> {
     return this.http.get<Avis[]>(this.urlBase+'avis');
   }
+
+  addAvis(id_recette: String, id_auteur : String, pseudo_auteur : String, date : String, avis : String) {
+    //console.log("Ajout d'un avis");
+    let serverCall : Observable<serverResponse> = this.http.post<serverResponse>(this.urlBase  + "avis/add", {id_recette, id_auteur, pseudo_auteur, date, avis});
+    serverCall.subscribe(val => {
+      //console.log(val);
+      if (val.resultat === 1) { // Ajout réussit !
+        alert(val.message);
+      }else {
+        alert(val.message);
+      }
+    });
+    //return this.http.post(this.urlBase  + "user/inscription", {email, pseudo, password});
+  }
+
+
 
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(this.urlBase+'ingredients');

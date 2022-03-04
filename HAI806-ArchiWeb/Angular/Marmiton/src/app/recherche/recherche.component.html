@@ -7,7 +7,7 @@
         <h3 class="center">Vous cherchez une recette ??</h3>
 
         <p style="font-size: 18px;" class="center">Dites nous tout, le nom de la recette ? Quels ingrédients elle contient ?  Qui est l'auteur ?</p>
-        <p style="font-size: 18px;" class="center"> Nous chercherons vos mot clés dans les noms de recettes, les ingrédients </p>
+        <p style="font-size: 18px;" class="center"> Nous chercherons vos mot clés dans les noms de recettes, les ingrédients, le nom de l'auteur, la difficulté .. </p>
 
         <div class="center ">
             <div>
@@ -15,7 +15,7 @@
                 <div class="col s10 offset-s1">
                         <div class="input-field">
                             <i class="material-icons prefix">search</i>
-                            <input #autocompleteinput type="text" (keyup.enter)="searchBarEvent(autocompleteinput.value); autocompleteinput.value = ''">
+                            <input #autocompleteinput type="text" (keyup.enter)="createTag(autocompleteinput.value); autocompleteinput.value = ''">
                             <label for="autocompleteinput">Qu'est ce que vous cherchez ??</label>
                         </div>
                     </div>
@@ -30,9 +30,12 @@
 
         </div>
 
-        
-
         <br>
+    </div>
+
+    <div id="listOfFoundElements">
+
+
     </div>
 </div>
 

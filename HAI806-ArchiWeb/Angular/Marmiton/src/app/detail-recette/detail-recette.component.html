@@ -2,15 +2,37 @@
     <div class="row">
         <div class="card " style="border-radius: 25px 25px 25px 0px;">
             <div class="card-content black-text" style="border-radius: 25px 25px 0px 0px;">                    
-                <span style="font-size: 32px;font-weight: 400;" class="card-title center">{{ listRecettes[0].nom }} (pour {{ listRecettes[0].nombrePersonnes }} personnes)</span>
-                <p style="font-size: 18px;">Mode de cuisson : {{ listRecettes[0].modeCuisson }}</p>
-                <br>
-                <p style="font-size: 16px; margin-bottom: 0;">Ingrédients : </p>
+                <p style="font-size: 12px;" class=" center red-text">{{ listRecettes[0]._id }}</p>
 
+                <span style="font-size: 28px;font-weight: 400;" class="card-title center">{{ listRecettes[0].nom }} (pour {{ listRecettes[0].nb_pers }} personnes)</span>
+
+                <div class="row">
+                    <div class="col s4"> <p class="center" style="font-size: 18px;">En : {{ listRecettes[0].tps_prep }}</p> </div>
+                    <div class="col s4"> <p class="center" style="font-size: 18px;">Mode de préparation : {{ listRecettes[0].mode_prep }}</p> </div>
+                    <div class="col s4"> <p class="center" style="font-size: 18px;">Difficulté : {{ listRecettes[0].difficulte }}</p> </div>
+                  </div>
+
+                <br>
+                <p style="font-size: 18px; margin-bottom: 0;">Ingrédients : </p>
                 <ul>
-                    <li *ngFor="let i of listRecettes[0].ingredients; index as index"><p style="font-size: 16px;"> &nbsp;&nbsp;&nbsp; {{ index }} - {{ i[0] }} ({{ i[1] }})  </p>   </li>
+                    <li *ngFor="let i of listRecettes[0].ingredients; index as index">
+                        <p style="font-size: 18px;"> &nbsp;&nbsp;&nbsp; {{ index }} - &nbsp;{{ i.quantite }}{{ i.unite}} {{ i.nom }}  </p>
+                    </li>
                 </ul>
-                
+
+                <br><hr><br>
+
+                <p style="font-size: 18px; margin-bottom: 0;">Etapes : </p>
+                <ul>
+                    <li *ngFor="let i of listRecettes[0].etapes; index as index">
+                        <p style="font-size: 18px;"> &nbsp;&nbsp;&nbsp; {{ index }} - &nbsp;{{ i[0] }} </p>
+                    </li>
+                </ul>
+
+                <br>
+                <br>
+
+                <p class="center" style="font-size: 16px;">Par {{ listRecettes[0].pseudo_auteur }} le {{listRecettes[0].date}}</p>
                 </div>
                 <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;"> 
                <!-- <a href="#" class="white-text waves-effect waves-light btn blue">Plus de détail</a> -->
@@ -24,8 +46,8 @@
           <div class="card-stacked">
             <div class="card-content">
                 <h4 class="header center">Laissez un commentaire !</h4>
-                <textarea id="textarea1" class="materialize-textarea" placeholder="Qu'en pensez vous ??"></textarea>
-                <a style="margin-left: 10px; margin-right: 10px;" class="right hoverable blue lighten-1 white-text waves-effect waves-light btn" >Envoyer</a>
+                <textarea #avis id="textarea1" class="materialize-textarea" placeholder="Qu'en pensez vous ??"></textarea>
+                <a (click)="sendAvis(avis.value);" style="margin-left: 10px; margin-right: 10px;" class="right hoverable blue lighten-1 white-text waves-effect waves-light btn" >Envoyer</a>
             </div>
             <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
             </div>
@@ -34,15 +56,17 @@
       </div>
 
       <br>
-      <h4 class="center">Avis des internautes</h4>
+      <h4 class="center">Avis des internautes ({{ listAvis.length}})</h4>
 
       <div class="row " *ngFor="let x of listAvis; index as index">
           <div class="card" style="border-radius: 25px 25px 25px 0px;">
-              <div class="card-content black-text" style="border-radius: 25px 25px 0px 0px;">                    
-                  <span style="font-size: 28px;font-weight: 400;" class="card-title center">{{ x.pseudo }}</span>
-                  <p style="font-size: 14px;" class="center">{{ x.date }}</p>
+              <div class="card-content black-text" style="border-radius: 25px 25px 0px 0px;">        
+                <p style="font-size: 12px;" class=" center red-text">{{ x._id }}</p>
+            
+                  <span style="font-size: 28px;font-weight: 400;" class="card-title center">Par : {{ x.pseudo_auteur }}</span>
+                  <p style="font-size: 14px;" class="center">Le : {{ x.date }}</p>
                   <br>
-                  <p style="font-size: 18px;">{{ x.commentaire }}</p>
+                  <p style="font-size: 18px;">{{ x.avis }}</p>
 
 
               </div>

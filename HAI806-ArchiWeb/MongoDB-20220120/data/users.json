@@ -1,4 +1,6 @@
 [
     {"pseudo":"admin", "email":"admin@local.host", "password":"123", "permLevel": 5},
-    {"pseudo":"user", "email":"user@local.host", "password":"123", "permLevel": 0}
+    {"pseudo":"user", "email":"user@local.host", "password":"123", "permLevel": 0},
+    {"pseudo":"Julien", "email":"Julien@local.host", "password":"motdepasse123", "permLevel": 0},
+    {"pseudo":"Martin", "email":"Martin@local.host", "password":"123123", "permLevel": 0}
 ]

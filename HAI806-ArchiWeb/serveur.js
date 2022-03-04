@@ -129,6 +129,32 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     });
     
     
+    
+    /* Creation d'un avis */
+    // Pour tester : curl --data "id_recette=iddelarecette&id_auteur=iddelauteur&pseudo_auteur=ajout&date=01/01/01&avis=Ajoutd'unavis" http://localhost:8888/avis/add
+    app.post("/avis/add", (req,res) => {
+        console.log("/avis/add avec "+JSON.stringify(req.body));
+        try {
+            db.collection("avis").insertOne(req.body);
+            res.end(JSON.stringify({"resultat": 1, "message": "Ajout de l'avis réussie"}));
+        } catch (e) {
+            res.end(JSON.stringify({"resultat": 0, "message": e}));
+        }
+    });   
+    
+    
+        /* Creation d'une recette */
+    // Pour tester : curl --data "id_recette=iddelarecette&id_auteur=iddelauteur&pseudo_auteur=ajout&date=01/01/01&avis=Ajoutd'unavis" http://localhost:8888/recettes/add
+    app.post("/recettes/add", (req,res) => {
+        console.log("/recettes/add avec "+JSON.stringify(req.body));
+        try {
+            db.collection("recettes").insertOne(req.body);
+            res.end(JSON.stringify({"resultat": 1, "message": "Ajout de la recette réussite"}));
+        } catch (e) {
+            res.end(JSON.stringify({"resultat": 0, "message": e}));
+        }
+    });     
+    
 });
 
 // Port d'écoute

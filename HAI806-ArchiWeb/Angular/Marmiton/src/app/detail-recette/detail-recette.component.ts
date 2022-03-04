@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListRecettesService, Recette, Avis} from '../list-recettes.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService, User } from '../user.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class DetailRecetteComponent implements OnInit {
     this.rec.getRecettes().subscribe(recettes => {
       this.listRecettes = recettes;
 
-      console.dir(this.listRecettes);
+      //console.dir(this.listRecettes);
 
       this.id = this.route.snapshot.params['id'];
       let isFound : Boolean = false;
@@ -43,25 +44,31 @@ export class DetailRecetteComponent implements OnInit {
 
     console.log("Recup des avis dans le service");
     this.rec.getAvis().subscribe(avis => {
-      this.listAvis = avis;
-      console.dir(this.listAvis);
-    });
-  }
-  
-  /*   Cette facon de faire est plus prorpe mais bon j'y arrive pas
-  ngOnInit(): void {
-    //this.id = this.route.params.id;
-    this.id = this.route.snapshot.params['id'];
-
-    console.log("Recup de la recette dans le service : " + this.id);
-    this.rec.getRecetteByID(this.id).subscribe(recette => {
-      this.listRecettes = recette;
-      console.dir(this.listRecettes);
-
-      if (this.listRecettes.length == 0) {
-        this.router.navigate(['/recetteNotFoundError']);
+      for (let x of avis) { // Ici filtrer les avis concernant la recette en questiion
+        if (x.id_recette === this.listRecettes[0]._id) {
+          this.listAvis.push(x) ;
+        }
       }
+      //this.listAvis = avis;
+      //console.dir(this.listAvis);
     });
   }
-  */
+
+
+  public sendAvis(avis : String) : void{
+    let date = new Date().toLocaleDateString();
+    /*
+    console.log(this.listRecettes[0]._id);
+    console.log(this.userService.getLoggedUser()._id); 
+    console.log(this.userService.getLoggedUser().pseudo);
+    console.log(date);
+    console.log(avis) ;
+    */
+    this.rec.addAvis(this.listRecettes[0]._id, this.userService.getLoggedUser()._id, this.userService.getLoggedUser().pseudo, date, avis) ;
+    this.reloadPage();
+  }
+
+  public reloadPage() : void  {
+    window.location.reload();
+  }
 }
