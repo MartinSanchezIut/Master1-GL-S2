@@ -1,5 +1,7 @@
 package fr.sanchez.devMobile.tp3;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -11,9 +13,11 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -29,6 +33,7 @@ public class FormFragment extends Fragment {
     private EditText nom, prenom, ddn, ndt, am;
     private CheckBox sport, musique, lecture, synchroniser;
     private Button soumettre;
+    private Button telecharger;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +41,7 @@ public class FormFragment extends Fragment {
 
         View rooter = inflater.inflate(R.layout.fragment_form, container, false);
         soumettre = (Button) rooter.findViewById(R.id.button) ;
+        telecharger = (Button) rooter.findViewById(R.id.button2) ;
 
         sport = (CheckBox) rooter.findViewById(R.id.sport) ;
         musique = (CheckBox) rooter.findViewById(R.id.musique) ;
@@ -119,6 +125,39 @@ public class FormFragment extends Fragment {
                 fragment.setArguments(bundle);
                 fragmentTransaction.replace(R.id.fragmentContainerView , fragment);
                 fragmentTransaction.commit();
+            }
+        });
+
+        telecharger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(getActivity());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.dialog);
+
+                EditText text = dialog.findViewById(R.id.edittext);
+                text.setVisibility(View.VISIBLE);
+
+
+                Button val = (Button) dialog.findViewById(R.id.val);
+                val.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Context context = getActivity().getApplicationContext();
+                        Toast.makeText(context, "Ok !", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                Button ret = (Button) dialog.findViewById(R.id.ret);
+                ret.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
             }
         });
 
