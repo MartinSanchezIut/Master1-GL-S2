@@ -25,7 +25,6 @@ export interface Recette{
   etapes : any[]
 }
 
-// Pas encore fait
 export interface Avis{
   _id : String;
   id_recette : String;
@@ -35,6 +34,11 @@ export interface Avis{
   date : String;
 }
 
+export interface Likes{
+  _id : String;
+  id_likeditem : String;
+  id_wholiked : String;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +57,24 @@ export class ListRecettesService {
 
   getAvis(): Observable<Avis[]> {
     return this.http.get<Avis[]>(this.urlBase+'avis');
+  }
+
+  getLikes(): Observable<Likes[]> {
+    return this.http.get<Likes[]>(this.urlBase+'likes');
+  }
+
+  addLike(id_likeditem: String, id_wholiked : String) {
+    console.log("Ajout d'un like");
+    let serverCall : Observable<serverResponse> = this.http.post<serverResponse>(this.urlBase  + "likes/add", {id_likeditem, id_wholiked});
+    serverCall.subscribe(val => {
+      //console.log(val);
+      if (val.resultat === 1) { // Ajout réussit !
+        alert(val.message);
+      }else {
+        alert(val.message);
+      }
+    });
+    //return this.http.post(this.urlBase  + "user/inscription", {email, pseudo, password});
   }
 
   addAvis(id_recette: String, id_auteur : String, pseudo_auteur : String, date : String, avis : String) {

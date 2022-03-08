@@ -18,7 +18,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     let db = client.db("NomDATABASE");
 
     console.log("Démarage du serveur node");
-    console.log("avis | ingredients | recettes | users");
+    console.log("avis | ingredients | recettes | users | likes");
 
     /* Lire n'importe quelle table */
     app.get("/:tab", (req,res) => {
@@ -137,6 +137,19 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
         try {
             db.collection("avis").insertOne(req.body);
             res.end(JSON.stringify({"resultat": 1, "message": "Ajout de l'avis réussie"}));
+        } catch (e) {
+            res.end(JSON.stringify({"resultat": 0, "message": e}));
+        }
+    });   
+    
+    
+        /* Creation d'un like */
+    // Pour tester : curl --data "id_likeditem=testtest&id_wholiked=nanani" http://localhost:8888/likes/add
+    app.post("/likes/add", (req,res) => {
+        console.log("/avis/add avec "+JSON.stringify(req.body));
+        try {
+            db.collection("avis").insertOne(req.body);
+            res.end(JSON.stringify({"resultat": 1, "message": "Ajout du like réussi"}));
         } catch (e) {
             res.end(JSON.stringify({"resultat": 0, "message": e}));
         }

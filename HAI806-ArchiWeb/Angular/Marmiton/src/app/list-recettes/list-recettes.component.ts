@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ListRecettesService, Recette} from '../list-recettes.service';
+import { ListRecettesService, Recette, Likes} from '../list-recettes.service';
+import { UserService, User } from '../user.service';
 
 @Component({
   selector: 'app-list-recettes',
@@ -14,7 +15,7 @@ export class ListRecettesComponent implements OnInit {
       le module a été appelle pour composer une autre page. EG: homepage
   */
   @Input() amount: Number = -1;
-  constructor(private recette: ListRecettesService ) { }
+  constructor(public userService : UserService, public recette: ListRecettesService ) { }
 
   ngOnInit(): void {
     /* 
@@ -39,4 +40,20 @@ export class ListRecettesComponent implements OnInit {
     });
   }
 
+  // boucle a l'infini
+  private val : boolean = false ;
+  public hasAlreadyLiked(id_likeditem: String, id_wholiked : String) : boolean {
+    console.log("hasAlreadyLiked(" + id_likeditem + ", " + id_wholiked + ")") ;
+    console.log("Recup des likes dans le service");
+    this.recette.getLikes().subscribe(likes => {
+      for (let x of likes) {
+        if (x.id_likeditem === id_likeditem && x.id_wholiked === id_likeditem) {
+          this.val = true;
+        }
+      }
+      this.val = false;
+    });
+    console.log(this.val);
+    return this.val;
+  }
 }

@@ -13,7 +13,7 @@ avis : // Fait
 	date			: La date de publication
 
 
-like :
+like :  // Fait
 	id_likeditem		: Ce qui a été liké
 	id_wholiked		: Qui like
 	

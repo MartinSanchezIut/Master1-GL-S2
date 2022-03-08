@@ -43,6 +43,10 @@
                 </div>
                 <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
                     <a href="#" [routerLink]="['/recette', x._id]" routerLinkActive="active" class="hoverable white-text waves-effect waves-light btn blue">Plus de détail</a>
+                    
+                    
+                    <a *ngIf="this.hasAlreadyLiked(x._id, this.userService.getLoggedUser()._id) == false" class="hoverable white-text waves-effect waves-light btn blue right" >Liker</a>
+                    <a *ngIf="this.hasAlreadyLiked(x._id, this.userService.getLoggedUser()._id) == true" class="hoverable white-text waves-effect waves-light btn blue disabled right" >Liker</a>
                 </div>
             </div>
         </div>
