@@ -5,24 +5,29 @@ user :  // Fait
 	permLevel		: Niveau de permission de l'utilisateur
 	
 	
-avis : 
+avis : // Fait
 	id_recette		: Identifiant de la recette
 	id_auteur		: Identifiant de l'auteur
-	pseudo_auteur	: Pseudo de l'auteur de l'avis
+	pseudo_auteur		: Pseudo de l'auteur de l'avis
 	avis			: L'avis / commentaire
 	date			: La date de publication
+
+
+like :
+	id_likeditem		: Ce qui a été liké
+	id_wholiked		: Qui like
 	
 	
 	
 recette :  // Fait
-	nom											: Le nom de la recette														
+	nom										: Le nom de la recette														
 	tps_prep									: Temps de préparation
 	difficulte									: Difficulte de la recette
 	mode_prep									: Mode de preparation  (four, casserole)
 	nb_pers										: Nombre de personnes
 
 	id_auteur									: Identifiant de l'auteur
-	pseudo_auteur								: Pseudo de l'auteur	
+	pseudo_auteur									: Pseudo de l'auteur	
 	date										: Date de mise en ligne
 
 	liste d'ingredients  
