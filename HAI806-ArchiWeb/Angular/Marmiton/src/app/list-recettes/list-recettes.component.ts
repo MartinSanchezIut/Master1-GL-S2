@@ -9,6 +9,7 @@ import { UserService, User } from '../user.service';
 })
 export class ListRecettesComponent implements OnInit {
   public listRecettes: Recette[] = new Array();
+  public listLikes: Likes[] = new Array();
 
   /*
       Si ce truc est défini (>0): 
@@ -35,11 +36,29 @@ export class ListRecettesComponent implements OnInit {
       if (this.amount !== -1) {
         this.listRecettes  = this.listRecettes .slice(0, Number(this.amount));
       }
-
-    //console.dir(this.listRecettes);
     });
+    
+    console.log("Recup des likes dans le service");
+    this.recette.getLikes().subscribe(likes => {
+      this.listLikes = likes;
+    });
+    console.dir(this.listLikes);
+    console.dir(this.listRecettes);
   }
 
+  public canLike(id_likeditem: String, id_wholiked : String) : boolean {
+    //console.log("canLike(" + id_likeditem + ", " + id_wholiked + ")");
+
+    return false;
+  }
+  
+  public getAmountOfLikes(id_likeditem : String) : Number {
+    //console.log("getAmountOfLikes(" + id_likeditem + ")");
+
+    return 7;
+  }
+
+  
   // boucle a l'infini
   private val : boolean = false ;
   public hasAlreadyLiked(id_likeditem: String, id_wholiked : String) : boolean {
