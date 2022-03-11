@@ -1,0 +1,15 @@
+Inductive is_fact : nat -> nat -> Prop :=
+  | is_fact_0 : is_fact 0 1
+  | is_fact_S : forall x y : nat, is_fact x y -> is_fact (S x) (y * (S x)).
+
+
+Fixpoint fact (n : nat) : nat :=
+  match n with
+  | 0 => 1
+  | (S n) => (fact n) * (S n)
+  end.
+
+Require Import FunInd.
+Functional Scheme fact_ind := Induction for fact Sort Prop.
+
+Print fact_ind.
