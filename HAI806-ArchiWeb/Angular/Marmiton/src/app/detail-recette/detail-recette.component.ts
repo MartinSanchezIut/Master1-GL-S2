@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ListRecettesService, Recette, Avis} from '../list-recettes.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ListRecettesService, Recette, Avis, Likes} from '../list-recettes.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService, User } from '../user.service';
-import { DatePipe } from '@angular/common';
+import {formatDate} from '@angular/common';
 
 
 @Component({
@@ -15,6 +15,8 @@ export class DetailRecetteComponent implements OnInit {
   public listRecettes: Recette[] = new Array();
   public listAvis: Avis[] = new Array();
   public id : String = "";
+  public listLikes: Likes[] = new Array();
+
 
   constructor(private route: ActivatedRoute, 
               private rec: ListRecettesService,
@@ -28,7 +30,9 @@ export class DetailRecetteComponent implements OnInit {
 
       //console.dir(this.listRecettes);
 
-      this.id = this.route.snapshot.params['id'];
+      //if( this.route.snapshot.params['id'] !== undefined && this.route.snapshot.params['id'] !== null) {
+        this.id = this.route.snapshot.params['id'];
+      //}
       let isFound : Boolean = false;
 
       for(let i = 0; i< this.listRecettes.length; i++) {
@@ -52,11 +56,19 @@ export class DetailRecetteComponent implements OnInit {
       //this.listAvis = avis;
       //console.dir(this.listAvis);
     });
+
+    console.log("Recup des likes dans le service");
+    this.rec.getLikes().subscribe(likes => {
+      for( let x of likes) {
+        this.listLikes.push(x);
+      }
+    });
+
   }
 
 
   public sendAvis(avis : String) : void{
-    let date = new Date().toLocaleDateString();
+    let date = formatDate(new Date(), 'dd/MM/yyy', 'en');
     /*
     console.log(this.listRecettes[0]._id);
     console.log(this.userService.getLoggedUser()._id); 
@@ -70,5 +82,36 @@ export class DetailRecetteComponent implements OnInit {
 
   public reloadPage() : void  {
     window.location.reload();
+  }
+
+  public aimer(id_likeditem: String) : void {
+    if (this.userService.isLogged() === true) {
+      this.rec.addLike(id_likeditem, this.userService.getLoggedUser()._id) ;
+      this.reloadPage();
+    }
+  }
+  public canLike(id_likeditem: String) : boolean {
+    if (this.userService.isLogged() == false) {
+      return false;
+    }
+    let user_wholiked : User = this.userService.getLoggedUser() ;
+   // console.log("canLike(" + id_likeditem + ")" + this.test);
+    for (let x of this.listLikes) {
+      if (x.id_likeditem === id_likeditem && x.id_wholiked === user_wholiked._id) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public getAmountOfLikes(id_likeditem : String) : Number {
+    //console.log("getAmountOfLikes(" + id_likeditem + ")");
+    let ret = 0;
+    for (let x of this.listLikes) {
+      if (x.id_likeditem === id_likeditem) {
+        ret += 1;
+      }
+    }
+    return ret;
   }
 }

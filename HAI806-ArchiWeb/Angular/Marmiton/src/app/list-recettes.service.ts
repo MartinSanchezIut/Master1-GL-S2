@@ -91,7 +91,19 @@ export class ListRecettesService {
     //return this.http.post(this.urlBase  + "user/inscription", {email, pseudo, password});
   }
 
-
+  addRecette(data : {nom : String,tps_prep : String,difficulte : String, mode_prep : String, nb_pers : String, id_auteur : String, pseudo_auteur : String, date : String, ingredients : {nom:String, quantite:String, unite:String}[], etapes : String[][]} ) {
+    console.log("Ajout d'une recette");
+    let serverCall : Observable<serverResponse> = this.http.post<serverResponse>(this.urlBase  + "recettes/add", data);
+    serverCall.subscribe(val => {
+      //console.log(val);
+      if (val.resultat === 1) { // Ajout réussit !
+        alert(val.message);
+      }else {
+        alert(val.message);
+      }
+    });
+    //return this.http.post(this.urlBase  + "user/inscription", {email, pseudo, password});
+  }
 
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(this.urlBase+'ingredients');

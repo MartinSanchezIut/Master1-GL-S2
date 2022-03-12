@@ -11,6 +11,7 @@ export class ListRecettesComponent implements OnInit {
   public listRecettes: Recette[] = new Array();
   public listLikes: Likes[] = new Array();
 
+
   /*
       Si ce truc est défini (>0): 
       le module a été appelle pour composer une autre page. EG: homepage
@@ -40,39 +41,47 @@ export class ListRecettesComponent implements OnInit {
     
     console.log("Recup des likes dans le service");
     this.recette.getLikes().subscribe(likes => {
-      this.listLikes = likes;
+      for( let x of likes) {
+        this.listLikes.push(x);
+      }
     });
     console.dir(this.listLikes);
     console.dir(this.listRecettes);
   }
 
-  public canLike(id_likeditem: String, id_wholiked : String) : boolean {
-    //console.log("canLike(" + id_likeditem + ", " + id_wholiked + ")");
 
-    return false;
+  public aimer(id_likeditem: String) : void {
+    if (this.userService.isLogged() === true) {
+      this.recette.addLike(id_likeditem, this.userService.getLoggedUser()._id) ;
+      this.reloadPage();
+    }
   }
-  
+  public canLike(id_likeditem: String) : boolean {
+    if (this.userService.isLogged() == false) {
+      return false;
+    }
+    let user_wholiked : User = this.userService.getLoggedUser() ;
+   // console.log("canLike(" + id_likeditem + ")" + this.test);
+    for (let x of this.listLikes) {
+      if (x.id_likeditem === id_likeditem && x.id_wholiked === user_wholiked._id) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   public getAmountOfLikes(id_likeditem : String) : Number {
     //console.log("getAmountOfLikes(" + id_likeditem + ")");
-
-    return 7;
+    let ret = 0;
+    for (let x of this.listLikes) {
+      if (x.id_likeditem === id_likeditem) {
+        ret += 1;
+      }
+    }
+    return ret;
   }
 
-  
-  // boucle a l'infini
-  private val : boolean = false ;
-  public hasAlreadyLiked(id_likeditem: String, id_wholiked : String) : boolean {
-    console.log("hasAlreadyLiked(" + id_likeditem + ", " + id_wholiked + ")") ;
-    console.log("Recup des likes dans le service");
-    this.recette.getLikes().subscribe(likes => {
-      for (let x of likes) {
-        if (x.id_likeditem === id_likeditem && x.id_wholiked === id_likeditem) {
-          this.val = true;
-        }
-      }
-      this.val = false;
-    });
-    console.log(this.val);
-    return this.val;
+  public reloadPage() : void  {
+    window.location.reload();
   }
 }

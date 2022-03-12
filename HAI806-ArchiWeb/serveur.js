@@ -146,9 +146,9 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
         /* Creation d'un like */
     // Pour tester : curl --data "id_likeditem=testtest&id_wholiked=nanani" http://localhost:8888/likes/add
     app.post("/likes/add", (req,res) => {
-        console.log("/avis/add avec "+JSON.stringify(req.body));
+        console.log("/likes/add avec "+JSON.stringify(req.body));
         try {
-            db.collection("avis").insertOne(req.body);
+            db.collection("likes").insertOne(req.body);
             res.end(JSON.stringify({"resultat": 1, "message": "Ajout du like réussi"}));
         } catch (e) {
             res.end(JSON.stringify({"resultat": 0, "message": e}));

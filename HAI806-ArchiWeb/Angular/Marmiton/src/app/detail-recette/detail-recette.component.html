@@ -34,9 +34,18 @@
 
                 <p class="center" style="font-size: 16px;">Par {{ listRecettes[0].pseudo_auteur }} le {{listRecettes[0].date}}</p>
                 </div>
-                <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;"> 
-               <!-- <a href="#" class="white-text waves-effect waves-light btn blue">Plus de détail</a> -->
-          </div>
+            <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px; height: 60px; padding-top: 10px; padding-bottom: 10px; padding-right: 30px;"> 
+
+                <a *ngIf="this.canLike(listRecettes[0]._id) === true; else elseBlock" class="hoverable white-text waves-effect waves-light btn blue right" (click)="aimer(listRecettes[0]._id);">J'aime</a>
+                <ng-template #elseBlock> 
+                <a class="hoverable white-text waves-effect waves-light btn blue disabled right" >J'aime</a>
+                </ng-template>
+                
+
+                <p class="right black-text " style="font-size: 18px; margin-top: 5px; margin-right: 20px;">{{ this.getAmountOfLikes(listRecettes[0]._id) }} utilisateurs ont aimé</p>
+
+                
+            </div>
         </div>
     </div>
     <hr><br>

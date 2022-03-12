@@ -44,8 +44,14 @@
                 <div class="card-action blue lighten-3" style="border-radius: 0px 0px 25px 0px;">
                     <a href="#" [routerLink]="['/recette', x._id]" routerLinkActive="active" class="hoverable white-text waves-effect waves-light btn blue">Plus de détail</a>
                     
-                    <a *ngIf="this.canLike(x._id, this.userService.getLoggedUser()._id) == true" class="hoverable white-text waves-effect waves-light btn blue right" >J'aime</a>
-                    <a *ngIf="this.canLike(x._id, this.userService.getLoggedUser()._id) == false" class="hoverable white-text waves-effect waves-light btn blue disabled right" >J'aime</a>
+
+                    <!-- *ngIf="this.canLike(x._id) === false" -->
+                    <a *ngIf="this.canLike(x._id) === true; else elseBlock" class="hoverable white-text waves-effect waves-light btn blue right" (click)="aimer(x._id);">J'aime</a>
+                    <ng-template #elseBlock> 
+                    <a class="hoverable white-text waves-effect waves-light btn blue disabled right" >J'aime</a>
+                    </ng-template>
+                    
+
                     <p class="right black-text " style="font-size: 18px; margin-top: 5px; margin-right: 20px;">{{ this.getAmountOfLikes(x._id) }} utilisateurs ont aimé</p>
                     
                 </div>
