@@ -1,0 +1,32 @@
+<label for="name">Nom:</label>
+<input #nom type="text" id="name" name="name" required
+       minlength="4" maxlength="8" size="10">
+
+<br><br>
+<label for="prenom">Prenom: </label>
+<input #prenom type="text" id="prenom" name="name" required
+       minlength="4" maxlength="8" size="10">
+
+
+<br><br>
+<label for="Age">Age: </label>
+<input #age type="number" id="Age" name="age" required
+       min="0" max="100">
+
+<br><br>
+<label for="num">Numéro: </label>
+<input #num type="text" id="num" name="name" required
+       minlength="4" maxlength="8" size="10">
+
+<br><br>
+<label for="Adresse">Adresse: </label>
+<input #addr type="text" id="Adresse" name="name" required
+       minlength="4" maxlength="8" size="10">
+
+<br><br>
+<label for="soc">Société: </label>
+<input #soc type="text" id="soc" name="name" required
+       minlength="4" maxlength="8" size="10">
+
+<br><br>
+<input type="button" value="Ajouter" (click)="this.ajouterContact(nom.value, prenom.value, age.value, num.value, addr.value, soc.value);">
