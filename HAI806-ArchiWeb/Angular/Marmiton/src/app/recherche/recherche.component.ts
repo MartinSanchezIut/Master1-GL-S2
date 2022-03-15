@@ -38,20 +38,22 @@ export class RechercheComponent implements OnInit {
   }
 
 
+  public listRecettes : Recette[] = new Array() ;
+
   public chercher(listOfTags : String[]) : void {
     console.log("Recup des recettes dans le service");
-    let listRecettes : Recette[] = new Array() ;
+    this.listRecettes = new Array() ;
     this.recetteService.getRecettes().subscribe(recettes => {
       
       for( let x of recettes) {
         for (let tag of this.getListOfTags()) {
           if (x.difficulte.includes(String(tag)) || x.pseudo_auteur.includes(String(tag)) || x.nom.includes(String(tag)) || x.mode_prep.includes(String(tag))) {
-                listRecettes.push(x);
+                this.listRecettes.push(x);
 
           }else { // Recherche dans les ingredients
             for (let z of x.ingredients) {
               if (z.nom.includes(String(tag))) {
-                listRecettes.push(x);
+                this.listRecettes.push(x);
               }
             }
           }
@@ -59,10 +61,10 @@ export class RechercheComponent implements OnInit {
       }    
     });
 
-    console.dir(listRecettes);
+    console.dir(this.listRecettes);
     let listOfFound = document.getElementById("listOfFoundElements") ;
-    console.log(listRecettes.length);
-    for(let x of listRecettes) {
+    console.log(this.listRecettes.length);
+    for(let x of this.listRecettes) {
       console.log("test");
     }
 

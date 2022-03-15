@@ -30,9 +30,7 @@ export class DetailRecetteComponent implements OnInit {
 
       //console.dir(this.listRecettes);
 
-      //if( this.route.snapshot.params['id'] !== undefined && this.route.snapshot.params['id'] !== null) {
-        this.id = this.route.snapshot.params['id'];
-      //}
+      this.id = this.route.snapshot.params['id'];      
       let isFound : Boolean = false;
 
       for(let i = 0; i< this.listRecettes.length; i++) {
