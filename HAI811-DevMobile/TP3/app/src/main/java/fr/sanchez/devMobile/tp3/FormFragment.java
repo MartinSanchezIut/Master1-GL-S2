@@ -2,6 +2,7 @@ package fr.sanchez.devMobile.tp3;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -19,7 +20,17 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -91,7 +102,7 @@ public class FormFragment extends Fragment {
             if (this.getArguments() != null) {
                 System.out.println("Recup des info dans le bundle");
                 String form = this.getArguments().getString("Form");
-                System.out.println(form);
+               // System.out.println(form);
                 Form f = new Gson().fromJson(form, Form.class);
                 nom.setText(f.getNom());
                 prenom.setText(f.getPrenom());
@@ -119,6 +130,34 @@ public class FormFragment extends Fragment {
 
                 bundle.putString("Form", new Gson().toJson(f));
 
+                RequestQueue queue = Volley.newRequestQueue(rooter.getContext());
+                // Si synchroniser == true alors envoyer au serveur
+                if (synchroniser.isChecked()) {
+                    try {
+                        String url = "http://192.168.0.13:8888/form/add";
+                        JSONObject parameters = new JSONObject(new Gson().toJson(f));
+
+                        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, parameters,
+                                new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                    //    Context context = FormFragment.this.getActivity().getApplicationContext();
+                                    //    Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+                                    }
+                                },  new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                error.printStackTrace();
+                            //    Context context = FormFragment.this.getActivity().getApplicationContext();
+                            //    Toast.makeText(context, "Erreur !", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        queue.add(postRequest);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 assert getFragmentManager() != null;
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 ResumeFragment fragment  = new ResumeFragment();
@@ -131,33 +170,24 @@ public class FormFragment extends Fragment {
         telecharger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog = new Dialog(getActivity());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setCancelable(true);
-                dialog.setContentView(R.layout.dialog);
+                Bundle bundle = new Bundle();
+                Form f = new Form(nom.getText().toString(),
+                        prenom.getText().toString(),
+                        ddn.getText().toString(),
+                        ndt.getText().toString(),
+                        am.getText().toString(),
+                        sport.isChecked(),
+                        musique.isChecked(),
+                        lecture.isChecked());
 
-                EditText text = dialog.findViewById(R.id.edittext);
-                text.setVisibility(View.VISIBLE);
+                bundle.putString("Form", new Gson().toJson(f));
 
-
-                Button val = (Button) dialog.findViewById(R.id.val);
-                val.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Context context = getActivity().getApplicationContext();
-                        Toast.makeText(context, "Ok !", Toast.LENGTH_LONG).show();
-                    }
-                });
-
-                Button ret = (Button) dialog.findViewById(R.id.ret);
-                ret.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.show();
+                assert getFragmentManager() != null;
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                DownloadFragment fragment  = new DownloadFragment();
+                fragment.setArguments(bundle);
+                fragmentTransaction.replace(R.id.fragmentContainerView , fragment);
+                fragmentTransaction.commit();
             }
         });
 

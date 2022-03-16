@@ -46,7 +46,7 @@ public class ResumeFragment extends Fragment {
 
         assert this.getArguments() != null;
         String form =this.getArguments().getString("Form");
-        System.out.println(form);
+        //System.out.println(form);
         Form f = new Gson().fromJson(form, Form.class) ;
 
         nom.setText(f.getNom());

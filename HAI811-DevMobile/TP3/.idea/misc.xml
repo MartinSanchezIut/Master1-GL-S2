@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Acces Rapide/Cours/Master1-GL-S2/HAI811-DevMobile/TP3/app/src/main/res/layout/activity_download_form.xml" value="0.358695652173913" />
         <entry key="..\:/Acces Rapide/Cours/Master1-GL-S2/HAI811-DevMobile/TP3/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Acces Rapide/Cours/Master1-GL-S2/HAI811-DevMobile/TP3/app/src/main/res/layout/dialog.xml" value="0.24954710144927536" />
+        <entry key="..\:/Acces Rapide/Cours/Master1-GL-S2/HAI811-DevMobile/TP3/app/src/main/res/layout/fragment_download.xml" value="0.33" />
         <entry key="..\:/Acces Rapide/Cours/Master1-GL-S2/HAI811-DevMobile/TP3/app/src/main/res/layout/fragment_form.xml" value="0.358695652173913" />
         <entry key="..\:/Acces Rapide/Cours/Master1-GL-S2/HAI811-DevMobile/TP3/app/src/main/res/layout/fragment_resume.xml" value="0.358695652173913" />
         <entry key="app/src/main/res/layout/dialog.xml" value="0.1" />
