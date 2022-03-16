@@ -1,0 +1,1 @@
+mongoimport --db Android --collection form --file data/form.json --jsonArray --drop
