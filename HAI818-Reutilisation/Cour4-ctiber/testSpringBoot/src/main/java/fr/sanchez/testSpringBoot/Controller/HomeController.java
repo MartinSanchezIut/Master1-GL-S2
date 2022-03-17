@@ -17,7 +17,7 @@ public class HomeController {
     private String appVersion;
 
     @GetMapping
-    @RequestMapping("/")
+    @RequestMapping("/appversion")
     public String getVersion() {
         return appVersion;
     }

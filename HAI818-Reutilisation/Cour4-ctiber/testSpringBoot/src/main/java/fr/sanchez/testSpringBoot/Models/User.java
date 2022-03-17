@@ -10,7 +10,6 @@ import java.util.List;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"} )
 public class User {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long user_id;
 
@@ -25,11 +24,24 @@ public class User {
     @Column
     private String password;
 
+    @Column
+    private Boolean enabled;
+
+    @Id
+    @Column
+    private String username;
+
     @ManyToMany
     @JoinTable(name="user_locations",
-            joinColumns = @JoinColumn(name="user_id"),
+            joinColumns = @JoinColumn(name="username"),
             inverseJoinColumns = @JoinColumn(name="location_id"))
     private List<Location> locations;
+
+    @OneToMany
+    @JoinTable(name="authorities",
+            joinColumns = @JoinColumn(name="username"),
+            inverseJoinColumns = @JoinColumn(name="authority_id"))
+    private List<Authorities> authorities;
 
 
     public User() {
@@ -90,5 +102,29 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public List<Authorities> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(List<Authorities> authorities) {
+        this.authorities = authorities;
     }
 }
