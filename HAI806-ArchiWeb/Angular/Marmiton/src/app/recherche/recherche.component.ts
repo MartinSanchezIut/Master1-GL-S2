@@ -54,6 +54,9 @@ export class RechercheComponent implements OnInit {
   public chercher(listOfTags : String[]) : void {
 
     let mainDiv = document.getElementById("listOfFoundElements") ;
+    if (mainDiv !== null)
+    mainDiv.innerHTML = "" ;
+
     let title = document.createElement("h3") ;
     title.className = "center";
     title.innerText = "Voila ce que nous avons trouvé";
