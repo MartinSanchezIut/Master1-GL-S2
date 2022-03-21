@@ -45,8 +45,8 @@ export class ListRecettesComponent implements OnInit {
         this.listLikes.push(x);
       }
     });
-    console.dir(this.listLikes);
-    console.dir(this.listRecettes);
+    //console.dir(this.listLikes);
+    //console.dir(this.listRecettes);
   }
 
 
