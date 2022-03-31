@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} MasterMind Controller {% endblock %}
+
+
+{% block body %}
+<p class="center"> Le mot a deviner est : {{ mot_deviner }} </p>
+
+{% for try in list %}
+
+    {{ try }}
+
+
+{% endfor %}
+
+
+{% if hasWon == false %}
+    <form action="/mastermind" method="post">
+        <div class="row">
+            <div class="input-field col s4 offset-s4">
+                <input id="icon_prefix" name="mot" type="text">
+                <label for="icon_prefix">Mot ?</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="submit" value="Envoyer !" class="hoverable blue lighten-1 white-text waves-effect waves-light btn">
+            </div>
+        </div>
+    </form>
+{% else %}
+    <p class="center"> Bien joué ! le mot a deviner etait : {{ mot_deviner }} </p>
+{% endif %}
+
+
+
+    <form action="/sessionClear" method="get" class="center">
+        <input type="submit" value="Clear session !" class="hoverable blue lighten-1 white-text waves-effect waves-light btn">
+    </form>
+{% endblock %}
+

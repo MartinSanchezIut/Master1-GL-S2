@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Main Controller {% endblock %}
+
+
+{% block body %}
+
+<br><br>
+<div class="container">
+    <h3 class="center" > Menu du controller : {{ controller_name }} ✅</h3>
+
+    <ul>
+        <br>
+        <li> 
+        <form action="/bonjour/" method="get">
+            <h5 class="center">Route :  /bonjour/{nom<[a-z]+>?toi}/{id<\d+>?13} <h5>
+            <div class="row">
+                <div class="input-field col s5">
+                    <input id="nom" name="nom" type="text">
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="input-field col s5">
+                    <input id="id" name="id" type="number">
+                    <label for="id">Identifiant</label>
+                </div>
+                <div class="input-field col s2">
+                    <input type="submit" value="Go !" formtarget="_blank">
+                </div>
+            </div>
+        </form>
+
+        </li>
+        <hr>
+        <br>
+        <li> 
+            <form action="/fact/" method="get">
+                <h5 class="center">Route :  /fact/{id<\d+>?2} <h5>
+                <div class="row">
+                    <div class="input-field col s10">
+                        <input id="id" name="id" type="number">
+                        <label for="id">Valeur</label>
+                    </div>
+
+                    <div class="input-field col s2">
+                        <input type="submit" value="Go !" formtarget="_blank">
+                    </div>
+                </div>
+            </form>
+        </li>
+        <hr>
+        <br>
+        <li> 
+            <form action="/comp/" method="get">
+                <h5 class="center">Route :  /comp/{a<\d+>?1}/{b<\d+>?2} <h5>
+                <div class="row">
+                    <div class="input-field col s5">
+                        <input id="a" name="a" type="number">
+                        <label for="a">Valeur 1</label>
+                    </div>
+                    <div class="input-field col s5">
+                        <input id="b" name="b" type="number">
+                        <label for="b">Valeur 2</label>
+                    </div>
+
+                    <div class="input-field col s2">
+                        <input type="submit" value="Go !" formtarget="_blank">
+                    </div>
+                </div>
+            </form>
+        </li>
+    </ul>
+
+</div>
+
+
+{% endblock %}

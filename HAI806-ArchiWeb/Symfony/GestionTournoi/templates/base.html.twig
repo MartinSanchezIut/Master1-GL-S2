@@ -2,18 +2,73 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+        <title> {% block title %}  TP Symfony  {% endblock %}</title>
+        
+        
+        <link rel="icon" href="{{ asset('assets/web.ico') }}">   
+   
+   
+   
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            <!-- {{ encore_entry_link_tags('app') }} -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         {% endblock %}
 
+
+
+
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            <!-- {{ encore_entry_script_tags('app') }} -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         {% endblock %}
     </head>
+
+
+
+
     <body>
+    <!-- Navbar pour grand écran -->
+    <nav class="hide-on-med-and-down">
+    <div class="nav-wrapper blue lighten-1">
+        <a class="brand-logo left unclickableLink" style="padding-left: 75px;">  {% block menu_title %}  TP Symfony  {% endblock %}  </a>
+        <ul class="right">
+        <li class="blue hoverable"><a href="/" >Home</a></li>
+        <li class="blue hoverable"><a href="/mastermind">Mastermind</a></li> 
+        <li class="blue hoverable"><a href="/gestionTournois">Tournois</a></li> 
+        </ul>
+    </div>
+    </nav>
+
+
         {% block body %}{% endblock %}
+
+
+
+    <br><br>
+    <footer class="page-footer blue lighten-1">
+    <div class="container">
+        <div class="row">
+        <div class="col l6 s12">
+            <h5 style="font-size: 24px;" class="white-text">{% block footer_title %}  TP Symfony  {% endblock %}</h5>
+            <ul>
+            <li><p style="font-size: 18px;" class="white-text ">HAI806I - Architectures web avancés.</p></li>
+            <li><p style="font-size: 18px;" class="white-text ">Par Martin Sanchez.</p></li>
+            </ul>
+        </div>
+        <div class="col l4 offset-l2 s12">
+            <h5 style="font-size: 24px;" class="white-text">Mes réseaux</h5>
+            <ul>
+            <li><a style="font-size: 18px;" class="white-text " href="mailto:martin.sanchez@etu.umontpellier.fr"> - Mail : martin.sanchez@etu.umontpellier.fr</a></li>
+            <li><a style="font-size: 18px;" class="white-text " href="https://github.com/MartinSanchezIut"> - Github : https://github.com/MartinSanchezIut</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="footer-copyright blue">
+
+    </div>
+    </footer>
+
     </body>
 </html>
