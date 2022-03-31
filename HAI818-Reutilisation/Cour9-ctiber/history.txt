@@ -1,0 +1,19 @@
+  mkdir src/
+  mkdir src/helloworld/
+  mkdir src/helloworld/java9/
+  mkdir src/helloworld/java9/cours/
+  mkdir src/helloworld/java9/cours/helloworld/
+  touch src/helloworld/java9/cours/helloworld/HelloWorld.java
+
+  touch src/helloworld/module-info.java
+
+  nano src/helloworld/module-info.java
+  nano src/helloworld/java9/cours/helloworld/HelloWorld.java
+
+  mkdir out/
+  mkdir mods/
+
+
+  javac -d out/helloworld src/helloworld/java9/cours/helloworld/HelloWorld.java src/helloworld/module-info.java
+
+  jar -cfe mods/helloworld.jar java9.cours.helloworld.HelloWorld -C out/helloworld .
