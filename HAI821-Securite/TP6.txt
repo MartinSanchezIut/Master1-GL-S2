@@ -45,7 +45,7 @@ Question 2.
 
 
 
-Arbre de typage λ-calcul    ( A FINIR )
+Arbre de typage λ-calcul   
 (x,ιA → ιB → ιC)∈ (x,ιA → ιB → ιC), (y,ιA → ιB), z,ιA
 ------------------------------------------ Var           ---------------------------------- Var                     -------------------------------- Var              -------------------------------- Var    
 (x,ιA → ιB → ιC), (y,ιA → ιB), z,ιA ⊢ x : ιA → ιB → ιC  (x,ιA → ιB → ιC), (y,ιA → ιB), z,ιA ⊢ z : ιA           (x,ιA → ιB → ιC), (y,ιA → ιB), z,ιA ⊢ y : ιA → ιB    (x,ιA → ιB → ιC), (y,ιA → ιB), z,ιA ⊢  z : ιA

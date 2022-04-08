@@ -1,0 +1,22 @@
+Require Extraction.
+
+(* Question 1 *)
+
+Inductive is_fact : nat-> nat -> Prop :=
+|is_fact_0 : is_fact 0 1
+|is_fact_S : forall n v : nat, is_fact n v -> is_fact (S n) ((S n) * v).
+
+
+(* Question 2 *)
+Lemma fact : forall n : nat, {v : nat|is_fact n v}.
+Proof.
+  induction n.
+  + exists 1.
+  apply is_fact_0.
+  + elim IHn.
+  intros.
+  exists ((S n) * x).
+  apply is_fact_S.
+  assumption.
+Defined.
+Extraction fact.
