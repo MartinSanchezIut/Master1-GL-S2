@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Authentification{% endblock %}
+
+{% block body %}
+
+<div class="container center">
+    <div class="col s12 m7">
+      <h2 class="header">Inscrivez vous !</h2>
+      <div class="card horizontal"  style="border-radius: 25px 25px 25px 0px;">
+        <div class="card-stacked">
+
+        <form action="/" method="post">
+
+          <div class="card-content">
+               <!-- <input type="email" class="black-text input" placeholder="Quel est votre email ?" required autofocus/> -->
+                <input type="text" class="black-text input" placeholder="Comment voulez vous qu'on vous appelle ?" required/>
+                <input type="password" class="black-text input" placeholder="Votre mot de passe." required/>
+          </div>
+  
+          <div class="card-action">
+            <input formtarget="_blank" type="submit" value="S'inscrire" style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 waves-effect waves-light btn">
+
+            <a href="/auth/login" style="margin-left: 10px; margin-right: 10px;" class="hoverable blue lighten-1 black-text waves-effect waves-light btn">J'ai déja un compte</a>
+          </div>
+
+        </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
