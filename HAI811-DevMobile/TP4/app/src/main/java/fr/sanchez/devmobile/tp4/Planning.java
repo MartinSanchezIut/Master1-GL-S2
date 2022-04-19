@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
+import fr.sanchez.devmobile.tp4.controller.PlanningController;
+
 public class Planning extends AppCompatActivity {
 
     private TextView H1;
@@ -26,18 +28,14 @@ public class Planning extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning);
 
+        init();
 
-        String file_name=getFilesDir() + "/"+"donner.json";
-        File t = new File(file_name);
-        if(!t.exists()) {
-            init();
-        }
         H1 = (TextView) findViewById(R.id.id8h);
         H2 = (TextView) findViewById(R.id.id10h);
         H3 = (TextView) findViewById(R.id.id14h);
         H4 = (TextView) findViewById(R.id.id16h);
 
-        PlanningControllers planningModel = new ViewModelProvider(this).get(PlanningControllers.class);
+        PlanningController planningModel = new ViewModelProvider(this).get(PlanningController.class);
         planningModel.init(getApplicationContext());
 
         H1.setText(planningModel.getCreneaux1());
@@ -79,16 +77,6 @@ public class Planning extends AppCompatActivity {
 
         Gson gson = new Gson();
         String json = gson.toJson(planning);
-
-        try {
-            FileOutputStream fOut = openFileOutput("donner.json",0);
-            fOut.write(json.getBytes());
-            fOut.close();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
 
     }
 }

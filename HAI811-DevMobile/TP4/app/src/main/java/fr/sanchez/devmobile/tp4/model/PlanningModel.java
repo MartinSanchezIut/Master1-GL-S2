@@ -8,6 +8,7 @@ import androidx.room.Room;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import fr.sanchez.devmobile.tp4.controller.AppDataBase;
 import fr.sanchez.devmobile.tp4.repository.PlanningDao;
 
 public class PlanningModel extends ViewModel {
@@ -20,10 +21,10 @@ public class PlanningModel extends ViewModel {
     public void init(Context context){
         AppDataBase db = Room.databaseBuilder(context,AppDataBase.class,"database-name").allowMainThreadQueries().build();
         this.plandao = db.planningDao();
-        PlanningEntity n1 = new PlanningEntity(0,"24/03/2022","TRAVAILLE1","TRAVAILLE1","TRAVAILLE1","TRAVAILLE1");
-        PlanningEntity n2 = new PlanningEntity(1,"25/03/2022","TRAVAILLE2","TRAVAILLE2","TRAVAILLE2","TRAVAILLE2");
-        PlanningEntity n3 = new PlanningEntity(2,"26/03/2022","TRAVAILLE3","TRAVAILLE3","TRAVAILLE3","TRAVAILLE3");
-        PlanningEntity n4 = new PlanningEntity(3,"27/03/2022","TRAVAILLE4","TRAVAILLE4","TRAVAILLE4","TRAVAILLE4");
+        PlanningEntity n1 = new PlanningEntity(0,"19/04/2022","Test","Test","Test","Test");
+        PlanningEntity n2 = new PlanningEntity(1,"22/03/2022","Test2","Test2","Test2","Test2");
+        PlanningEntity n3 = new PlanningEntity(2,"20/04/2022","Test3","Test3","Test3","Test3");
+        PlanningEntity n4 = new PlanningEntity(3,"22/04/2022","Test4","Test4","Test4","Test4");
         this.plandao.insert(n1);
         this.plandao.insert(n2);
         this.plandao.insert(n3);
