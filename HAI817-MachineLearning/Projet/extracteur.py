@@ -12,7 +12,9 @@ outputfileName = "output_" + str(nombreDeTRUE) + "-" + str(nombreDeFALSE) + ".cs
 f = open("claimskg_result.csv", 'r+', encoding="utf8")
 f_output = open(outputfileName , 'w+', newline='')
 
-print(f.readline())
+first_line = f.readline()
+print(first_line)
+
 c_TRUE = 0
 c_FALSE = 0
 
@@ -21,6 +23,7 @@ c_FALSE = 0
 
 myWriter = csv.writer(f_output)
 myReader = csv.reader(f)
+myWriter.writerow(first_line)
 for row in myReader:
     if (c_TRUE == nombreDeTRUE and c_FALSE == nombreDeFALSE):
         break
