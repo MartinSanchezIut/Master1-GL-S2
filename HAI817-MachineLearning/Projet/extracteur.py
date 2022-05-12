@@ -4,8 +4,8 @@ import csv
 # Pour extraire un certain nombre de TRUE / FALSE du fichier : claimskg_result.csv
 
 # VARIABLES A MODIFIER
-nombreDeTRUE = 200
-nombreDeFALSE = 200
+nombreDeTRUE = 750
+nombreDeFALSE = 350
 outputfileName = "output_" + str(nombreDeTRUE) + "-" + str(nombreDeFALSE) + ".csv"
 # *-*-*-*-*
 
@@ -16,8 +16,8 @@ print(f.readline())
 c_TRUE = 0
 c_FALSE = 0
 
-sourceLenght = len(f.readlines())
-newSourceFile = list()
+# sourceLenght = len(f.readlines())
+# newSourceFile = list()
 
 myWriter = csv.writer(f_output)
 myReader = csv.reader(f)
@@ -39,19 +39,19 @@ for row in myReader:
         # row = ["", ""]
         continue
 
-    newSourceFile.append(row)
+    #  newSourceFile.append(row)
 
 # f.close()
 # f = open("claimskg_result.csv" , 'w+', newline='')
 # myWriter = csv.writer(f)
 # for row in newSourceFile:
 #     myWriter.writerow(row)
-print(newSourceFile)
+# print(newSourceFile)
 
 f.close()
 f_output.close()
 
 print("True : " + str(c_TRUE) + "/" + str(nombreDeTRUE))
 print("False : " + str(c_FALSE) + "/" + str(nombreDeFALSE))
-print(str(len(newSourceFile)) + " / " + str(sourceLenght))
+# print(str(len(newSourceFile)) + " / " + str(sourceLenght))
 print(outputfileName)
