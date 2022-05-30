@@ -5,11 +5,32 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class MainController extends AbstractController
 {
+
+    /** 
+     * @Route("/session/{k?}/{v?}") 
+    */
+    function session($k,$v, SessionInterface $session) : Response {
+        $r="";
+        if($k===null){
+            foreach($session->all() as $c => $w){
+                $s=strval($w);
+                $r .= strval($c)."=>".$s."<br>";
+            }
+        }else {
+            $session->set($k,$v);
+        } 
+        return new Response($r);
+    }
+
+
+
     /**
      * @Route("/", name="app_main")
+     * @Route("index")
      */
     public function index(): Response {
         return $this->render('main/index.html.twig', [
